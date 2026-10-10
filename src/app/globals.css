@@ -1,0 +1,286 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ *
+ * SandBase Lab — design tokens
+ * Lifted from the SandBase design system (risograph catalogue: violet +
+ * lime spot inks on paper/ink stock, square corners, no resting shadows).
+ * ------------------------------------------------------------------ */
+
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/ClashGrotesk-Variable.woff2') format('woff2');
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer utilities {
+  .page-measure { margin-inline: var(--page-inset); }
+  .pixel-tile {
+    --pixel-line: rgb(0 0 0 / .06);
+    background-image: linear-gradient(to right, var(--pixel-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--pixel-line) 1px, transparent 1px);
+    background-size: 8px 8px;
+  }
+  .pixel-tile--on-dark { --pixel-line: rgb(255 255 255 / .09); }
+}
+
+:root {
+  --color-canvas: #0e0b1a;
+  --color-surface: #241d44;
+  --color-surface-alt: #2e2656;
+  --color-line: #332d4f;
+  --color-line-control: #332d4f;
+  --color-line-strong: #f2f0f3;
+  --color-ink: #f2f0f3;
+  --color-ink-muted: #a29ea9;
+  --color-ink-subtle: #8a8698;
+  --color-accent: #d9ff43;
+  --color-panel: #3a3070;
+  --color-panel-fg: #f2f0f3;
+  --color-panel-code: #f2f0f3;
+  --color-panel-fg-muted: #b3afc1;
+  --color-panel-fg-label: #a9a5b8;
+  --color-tint-cyan: #8b6fff;
+  --color-tint-blue: #d9ff43;
+  --color-tint-blue-fg: #0e0b1a;
+  --color-tint-mint: #1a1531;
+  --color-tint-mint-strong: #d9ff43;
+  --color-tint-yellow: #d9ff43;
+  --color-tint-yellow-fg: #0e0b1a;
+  --color-plate: #1e1936;
+  --color-positive: #d9ff43;
+  --color-positive-bright: #d9ff43;
+  --font-family-heading: 'Clash Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Roboto, sans-serif;
+  --font-family-body: 'Clash Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Roboto, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Geist Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
+  --font-weight-normal: 400;
+  --font-weight-medium: 450;
+  --font-weight-semibold: 500;
+  --line-height-body: 1.65;
+  --page-measure: 90rem;
+  --page-inset: max(clamp(1.25rem, 5.5556vw, 5rem), calc((100% - var(--page-measure)) / 2 + 5rem));
+  --page-gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --section-gap: clamp(2rem, 4vw, 4.5rem);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-full: 9999px;
+  --bg-primary: #0e0b1a;
+  --bg-card: #241d44;
+  --text-primary: #f2f0f3;
+  --text-muted: #8a8698;
+  --text-accent: #d9ff43;
+  --border-primary: #332d4f;
+  --border-secondary: #3d3661;
+  --border-focus: rgba(217, 255, 67, 0.5);
+  --active-overlay: rgba(217, 255, 67, 0.16);
+  --button-primary-bg: #d9ff43;
+  --button-primary-bg-hover: #e5ff78;
+  --button-primary-fg: #0e0b1a;
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+  --color-error: #f87171;
+  --color-warning: #f5a623;
+  --color-info: #3b82f6;
+  color-scheme: dark;
+}
+
+.light-mode {
+  --color-canvas: #f2f0f3;
+  --color-surface: #ffffff;
+  --color-surface-alt: #e7e4ea;
+  --color-line: #dbd8df;
+  --color-line-control: #0e0b1a;
+  --color-line-strong: #0e0b1a;
+  --color-ink: #0e0b1a;
+  --color-ink-muted: #5d5969;
+  --color-ink-subtle: #757183;
+  --color-accent: #5e3fff;
+  --color-panel: #0e0b1a;
+  --color-panel-fg: #f2f0f3;
+  --color-panel-code: #f2f0f3;
+  --color-panel-fg-muted: #a29ea9;
+  --color-panel-fg-label: #8a8698;
+  --color-plate: #0e0b1a;
+  --color-tint-cyan: #d9ff43;
+  --color-tint-blue: #8b6fff;
+  --color-tint-blue-fg: #ffffff;
+  --color-tint-mint: #e7e4ea;
+  --color-tint-mint-strong: #d9ff43;
+  --color-tint-yellow: #d9ff43;
+  --color-tint-yellow-fg: #0e0b1a;
+  --color-positive: #3f7a1a;
+  --color-positive-bright: #d9ff43;
+  --bg-primary: #f2f0f3;
+  --bg-card: #ffffff;
+  --text-primary: #0e0b1a;
+  --text-muted: #757183;
+  --text-accent: #5e3fff;
+  --border-primary: #dbd8df;
+  --border-secondary: #c9c6d0;
+  --border-focus: rgba(94, 63, 255, 0.45);
+  --active-overlay: rgba(94, 63, 255, 0.1);
+  --button-primary-bg: #0e0b1a;
+  --button-primary-bg-hover: #2a2926;
+  --button-primary-fg: #f2f0f3;
+  --shadow-md: 0 4px 12px rgba(17, 17, 15, 0.08);
+  --shadow-lg: 0 12px 32px rgba(17, 17, 15, 0.12);
+  --color-error: #d43f2a;
+  --color-warning: #b47b10;
+  --color-info: #5941d9;
+  color-scheme: light;
+}
+
+html[data-theme='dark'] {
+  --color-canvas: #0e0b1a;
+  --color-surface: #241d44;
+  --color-surface-alt: #2e2656;
+  --color-line: #332d4f;
+  --color-line-control: #332d4f;
+  --color-line-strong: #f2f0f3;
+  --color-ink: #f2f0f3;
+  --color-ink-muted: #a29ea9;
+  --color-ink-subtle: #8a8698;
+  --color-accent: #d9ff43;
+  --color-panel: #3a3070;
+  --color-tint-cyan: #8b6fff;
+  --color-tint-blue: #d9ff43;
+  --color-tint-blue-fg: #0e0b1a;
+  --color-plate: #1e1936;
+  --bg-primary: #0e0b1a;
+  --bg-card: #241d44;
+  --text-primary: #f2f0f3;
+  --text-muted: #8a8698;
+  --text-accent: #d9ff43;
+  --border-primary: #332d4f;
+  --border-secondary: #3d3661;
+  --border-focus: rgba(217, 255, 67, 0.5);
+  --active-overlay: rgba(217, 255, 67, 0.16);
+  --button-primary-fg: #0e0b1a;
+}
+
+* { box-sizing: border-box; }
+html {
+  min-height: 100%;
+  overflow-x: clip;
+  background: var(--bg-primary);
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100%;
+  margin: 0;
+  overflow-x: clip;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+button, input, textarea, select { font: inherit; }
+button, [role='button'], a { -webkit-tap-highlight-color: transparent; }
+button:disabled, input:disabled, textarea:disabled, select:disabled { cursor: not-allowed; }
+a { color: inherit; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.15;
+  letter-spacing: 0;
+  margin: 0;
+}
+code, pre, .font-mono { font-family: var(--font-family-mono); font-feature-settings: normal; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+.app-shell { display: flex; flex-direction: column; min-height: 100dvh; }
+.site-main { flex: 1 0 auto; min-width: 0; }
+.site-main:focus { outline: none; }
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-md);
+  background: var(--button-primary-bg);
+  color: var(--button-primary-fg);
+  transform: translateY(-160%);
+  transition: transform 120ms ease;
+}
+.skip-link:focus { transform: translateY(0); }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+::selection { background: var(--active-overlay); color: var(--text-primary); }
+
+/* Shared type roles for hand-rolled surfaces. */
+.sb-eyebrow {
+  margin: 0;
+  color: var(--text-accent);
+  font-family: var(--font-family-mono);
+  font-size: .6875rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.sb-heading {
+  margin: 0;
+  max-width: 980px;
+  color: var(--text-primary);
+  font-size: clamp(1.875rem, 1.55rem + 1vw, 2.375rem);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.12;
+}
+.sb-lede {
+  max-width: 760px;
+  color: var(--text-muted);
+  font-size: .9375rem;
+  line-height: 1.7;
+}
+
+.input-base {
+  width: 100%;
+  padding: .625rem .75rem;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  outline: none;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  font-family: var(--font-family-body);
+  font-size: .875rem;
+  line-height: 1.4;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.input-base::placeholder { color: var(--text-muted); }
+.input-base:focus { border-color: var(--text-accent); box-shadow: 0 0 0 2px var(--active-overlay); }
+textarea.input-base { resize: vertical; }
+
+.card-hover { transition: background-color 150ms ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  :root { --section-gap: 2.5rem; }
+}

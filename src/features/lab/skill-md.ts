@@ -1,0 +1,56 @@
+import { installCommand, skillAgents, type Skill } from '@/content/skills'
+
+const RULE = '-'.repeat(58)
+
+/** Render a plausible SKILL.md from the catalog entry (demo only). */
+export function buildSkillMarkdown(skill: Skill): string {
+  const agents = skillAgents(skill)
+  return [
+    `# ${skill.name}`,
+    '',
+    `> ${skill.tagline}`,
+    '',
+    `- slug: ${skill.slug}`,
+    `- version: ${skill.version}`,
+    `- category: ${skill.category}`,
+    `- access: ${skill.price}`,
+    `- updated: ${skill.updated}`,
+    `- generates with: ${skill.generatesWith}`,
+    `- runs in: ${agents.map((agent) => agent.label).join(', ')}`,
+    '',
+    RULE,
+    '',
+    '## What this Skill does',
+    '',
+    skill.description,
+    '',
+    '## Instructions',
+    '',
+    '1. Read the request and confirm the subject, style and any constraints.',
+    '2. Follow the workflow below and produce the artifact in the listed formats.',
+    '3. Return the finished files plus the commands used.',
+    '',
+    '## Workflow',
+    '',
+    ...skill.steps.map((step, index) => `${index + 1}. **${step.label}** — ${step.detail}`),
+    '',
+    '## What you get',
+    '',
+    ...skill.whatYouGet.map((item) => `- ${item}`),
+    '',
+    '## Example prompt',
+    '',
+    '```text',
+    skill.promptExample,
+    '```',
+    '',
+    '## Tags',
+    '',
+    skill.tags.map((tag) => `\`${tag}\``).join(' '),
+    '',
+    RULE,
+    '',
+    `Install: ${installCommand(skill)}`,
+    '',
+  ].join('\n')
+}
