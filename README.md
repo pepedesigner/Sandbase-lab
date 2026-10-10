@@ -37,7 +37,7 @@ Open any Skill and press **Run in browser**. The workbench replays the workflow 
 
 - **Faithful to the SandBase design language** — the colour tokens, type ramp (`Clash Grotesk` + mono labels), square corners, `pixel-tile` grids and registration marks are lifted straight from the SandBase front end, so the Lab drops into the real site without a redesign.
 - **Light & dark** — the full day/night token set with a theme control in the header; defaults to the paper look.
-- **Procedural artwork** — every preview (a printed page, a slide, a film frame, an image card) is drawn as inline SVG from the Skill's own title, in the brand palette. No external images.
+- **Real previews** — every card, gallery and run result shows the Skill's actual published result artwork (downloaded locally, no hotlinking), with a procedural SVG scene as a fallback if an image is missing. See [`docs/previews.md`](docs/previews.md).
 - **Accessible** — semantic landmarks, skip link, keyboard-friendly disclosures, focus-visible states and reduced-motion fallbacks throughout.
 - **Static** — every route is prerendered.
 
@@ -90,7 +90,7 @@ Ink `#0e0b1a` on paper `#f2f0f3`, with two spot inks — violet `#8b6fff` and li
 
 ## Notes
 
-This is an independent demo that reuses the SandBase visual language for illustrative purposes. Product names and logos of third-party agents (Claude Code, Codex, Cursor, Gemini, …) belong to their respective owners.
+This is an independent demo that reuses the SandBase visual language for illustrative purposes. Skill names, descriptions and preview artwork are the published results from [skillry.dev](https://skillry.dev); product names and logos of third-party agents (Claude Code, Codex, Cursor, Gemini, …) belong to their respective owners.
 
 ## License
 

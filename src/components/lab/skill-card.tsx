@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
 import { AgentRow } from '@/components/lab/agent-badges'
-import { ArtifactPreview } from '@/components/lab/artifact-preview'
+import { SkillImage } from '@/components/lab/skill-image'
 import { PixelFrame } from '@/components/ui/pixel-frame'
 import { CATEGORY_BY_KEY } from '@/content/categories'
-import { skillAgents, type Skill } from '@/content/skills'
+import { skillAgents, skillCardImage, type Skill } from '@/content/skills'
 import { cn } from '@/lib/cn'
 
 export function SkillBadge({ skill }: { skill: Skill }) {
@@ -29,9 +29,7 @@ export function SkillCard({ skill, className }: { skill: Skill; className?: stri
       className={cn('group flex flex-col bg-surface transition-colors hover:bg-surface-alt', className)}
     >
       <PixelFrame className="aspect-[16/10]">
-        <div className="absolute inset-2.5">
-          <ArtifactPreview skill={skill} />
-        </div>
+        <SkillImage skill={skill} src={skillCardImage(skill)} className="absolute inset-0" />
       </PixelFrame>
       <div className="flex flex-1 flex-col gap-3 p-4">
         <div className="flex flex-wrap items-center gap-2">

@@ -3,16 +3,24 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { AgentChip } from '@/components/lab/agent-badges'
-import { ArtifactPreview } from '@/components/lab/artifact-preview'
 import { FaqList } from '@/components/lab/faq-item'
 import { SkillBadge, SkillGrid } from '@/components/lab/skill-card'
+import { SkillImage } from '@/components/lab/skill-image'
 import { CopyButton } from '@/components/ui/copy-button'
 import { Container } from '@/components/ui/container'
 import { CornerMarks } from '@/components/ui/corner-marks'
 import { PixelFrame } from '@/components/ui/pixel-frame'
 import { Section } from '@/components/ui/section'
 import { CATEGORY_BY_KEY } from '@/content/categories'
-import { getSkill, installCommand, similarSkills, skillAgents, SKILLS } from '@/content/skills'
+import {
+  getSkill,
+  installCommand,
+  similarSkills,
+  skillAgents,
+  skillGalleryImages,
+  skillMainImage,
+  SKILLS,
+} from '@/content/skills'
 import { DownloadSkillButton } from '@/features/lab/DownloadSkillButton'
 
 export function generateStaticParams() {
@@ -35,6 +43,7 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
   const category = CATEGORY_BY_KEY[skill.category]
   const agents = skillAgents(skill)
   const related = similarSkills(skill, 4)
+  const gallery = skillGalleryImages(skill)
   const command = installCommand(skill)
 
   const stats = [
@@ -115,19 +124,17 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
             {/* Gallery */}
             <div className="flex flex-col gap-4">
               <PixelFrame className="aspect-[16/10]">
-                <div className="absolute inset-3">
-                  <ArtifactPreview skill={skill} seed={0} />
-                </div>
+                <SkillImage skill={skill} src={skillMainImage(skill)} className="absolute inset-0" />
               </PixelFrame>
-              <div className="grid grid-cols-3 gap-4">
-                {[1, 2, 3].map((seed) => (
-                  <PixelFrame key={seed} sweep={false} className="aspect-[4/3]">
-                    <div className="absolute inset-2">
-                      <ArtifactPreview skill={skill} seed={seed} />
-                    </div>
-                  </PixelFrame>
-                ))}
-              </div>
+              {gallery.length ? (
+                <div className={gallery.length === 1 ? 'grid grid-cols-1 gap-4' : 'grid grid-cols-2 gap-4'}>
+                  {gallery.map((src, index) => (
+                    <PixelFrame key={src} sweep={false} className="aspect-[4/3]">
+                      <SkillImage skill={skill} src={src} seed={index + 1} className="absolute inset-0" />
+                    </PixelFrame>
+                  ))}
+                </div>
+              ) : null}
               <p className="font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">
                 Preview gallery — results this Skill produces
               </p>

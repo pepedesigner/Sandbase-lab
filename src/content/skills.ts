@@ -53,6 +53,27 @@ export function skillAgents(skill: Skill): AgentRef[] {
   return agents(...skill.agentKeys)
 }
 
+/* Preview artwork lives in /public/skills/<slug>/ (see docs/previews.md).
+ * Every Skill ships a card + main image; the gallery extras vary. */
+const GALLERY_COUNTS: Record<string, number> = {
+  'linear-agent-style-launch-video': 0,
+  'velocity-matched-ui-sting': 1,
+  'device-canvas-product-launch': 1,
+}
+
+export function skillCardImage(skill: Skill): string {
+  return `/skills/${skill.slug}/card.webp`
+}
+
+export function skillMainImage(skill: Skill): string {
+  return `/skills/${skill.slug}/main.webp`
+}
+
+export function skillGalleryImages(skill: Skill): string[] {
+  const count = GALLERY_COUNTS[skill.slug] ?? 2
+  return Array.from({ length: count }, (_, index) => `/skills/${skill.slug}/alt-${index + 1}.webp`)
+}
+
 const ALL_AGENTS = ['claude-code', 'codex', 'chatgpt', 'cursor', 'copilot'].filter((key) => AGENTS[key])
 const CODE_AGENTS = ['claude-code', 'codex', 'cursor', 'opencode', 'windsurf']
 

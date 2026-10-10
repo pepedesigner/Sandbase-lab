@@ -3,12 +3,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { AgentChip } from '@/components/lab/agent-badges'
-import { ArtifactPreview } from '@/components/lab/artifact-preview'
+import { SkillImage } from '@/components/lab/skill-image'
 import { SkillBadge } from '@/components/lab/skill-card'
 import { PixelFrame } from '@/components/ui/pixel-frame'
 import { CopyButton } from '@/components/ui/copy-button'
 import { CATEGORY_BY_KEY } from '@/content/categories'
-import { installCommand, skillAgents, type Skill } from '@/content/skills'
+import { installCommand, skillAgents, skillMainImage, type Skill } from '@/content/skills'
 import { planRun, totalDuration, type RunLine } from '@/features/lab/run-simulator'
 import { cn } from '@/lib/cn'
 
@@ -266,9 +266,7 @@ export function RunWorkbench({ skill }: { skill: Skill }) {
               </span>
             </div>
             <PixelFrame className="aspect-[16/9]">
-              <div className="absolute inset-3">
-                <ArtifactPreview skill={skill} seed={1} />
-              </div>
+              <SkillImage skill={skill} src={skillMainImage(skill)} className="absolute inset-0" />
             </PixelFrame>
             <div className="flex flex-wrap gap-3">
               <button
