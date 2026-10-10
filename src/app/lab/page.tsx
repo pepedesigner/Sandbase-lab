@@ -95,7 +95,7 @@ export default function LabHomePage() {
             </Link>
             <Link
               href="/lab/skills/dot-avatar-maker"
-              className="inline-flex items-center justify-center px-6 py-[13px] text-body font-medium text-tint-blue-fg ring-1 ring-inset ring-tint-blue-fg/50 transition-colors hover:bg-tint-blue-fg hover:text-tint-blue"
+              className="inline-flex items-center justify-center px-6 py-[13px] text-body font-medium text-tint-blue-fg ring-1 ring-inset ring-tint-blue-fg transition-colors hover:bg-tint-blue-fg hover:text-tint-blue"
             >
               Run one now
             </Link>
@@ -166,7 +166,7 @@ export default function LabHomePage() {
         <Container className="flex flex-col gap-11">
           <SectionHead
             eyebrow="Every Skill is designed in-house"
-            title="400+ Skills, and counting"
+            title="Designed, written and tested in-house"
             lede="Each one starts as a finished piece of work we design ourselves: a deck, a page, a film. Then we write the instructions, templates and scripts that let your agent make it again."
             dark
           />
@@ -250,7 +250,7 @@ export default function LabHomePage() {
             </Link>
             <Link
               href="/lab/pricing"
-              className="inline-flex items-center justify-center px-6 py-[13px] text-body font-medium text-tint-blue-fg ring-1 ring-inset ring-tint-blue-fg/50 transition-colors hover:bg-tint-blue-fg hover:text-tint-blue"
+              className="inline-flex items-center justify-center px-6 py-[13px] text-body font-medium text-tint-blue-fg ring-1 ring-inset ring-tint-blue-fg transition-colors hover:bg-tint-blue-fg hover:text-tint-blue"
             >
               See plans
             </Link>

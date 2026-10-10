@@ -33,12 +33,19 @@ Open any Skill and press **Run in browser**. The workbench replays the workflow 
 
 ![Run workbench](docs/screenshots/run.png)
 
+<p align="center">
+  <img src="docs/screenshots/mobile-home.png" width="27%" alt="Lab on mobile" />
+  <img src="docs/screenshots/mobile-drawer.png" width="27%" alt="Mobile navigation drawer" />
+  <img src="docs/screenshots/home-dark.png" width="40%" alt="Lab in dark mode" />
+</p>
+
 ## Highlights
 
 - **Faithful to the SandBase design language** — the colour tokens, type ramp (`Clash Grotesk` + mono labels), square corners, `pixel-tile` grids and registration marks are lifted straight from the SandBase front end, so the Lab drops into the real site without a redesign.
 - **Light & dark** — the full day/night token set with a theme control in the header; defaults to the paper look.
 - **Real previews** — every card, gallery and run result shows the Skill's actual published result artwork (downloaded locally, no hotlinking), with a procedural SVG scene as a fallback if an image is missing. See [`docs/previews.md`](docs/previews.md).
-- **Accessible** — semantic landmarks, skip link, keyboard-friendly disclosures, focus-visible states and reduced-motion fallbacks throughout.
+- **Accessible** — semantic landmarks, one `h1` per page with no skipped heading levels, a skip link, keyboard-friendly disclosures, focus-visible states and reduced-motion fallbacks throughout.
+- **Responsive** — verified from 390px to 1440px with no horizontal overflow; the mobile navigation opens as a fixed, dismissable sheet.
 - **Static** — every route is prerendered.
 
 ## Tech stack

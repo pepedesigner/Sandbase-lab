@@ -553,7 +553,7 @@ export const SKILLS: Skill[] = [
 
   /* -------------------------------------------------------------- Image */
   {
-    slug: 'apple-style-og-image',
+    slug: 'apple-style-og',
     name: 'Apple Style OG Image',
     category: 'image',
     tagline: 'A calm, product-first share card.',

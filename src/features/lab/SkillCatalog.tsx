@@ -127,9 +127,9 @@ export function SkillCatalog({ skills }: { skills: Skill[] }) {
 
       <div className="flex min-w-0 flex-col gap-6">
         <div className="flex items-center justify-between border-b border-line pb-4">
-          <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">
+          <h2 className="font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">
             {results.length} {results.length === 1 ? 'Skill' : 'Skills'}
-          </span>
+          </h2>
           <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">Sorted by relevance</span>
         </div>
 

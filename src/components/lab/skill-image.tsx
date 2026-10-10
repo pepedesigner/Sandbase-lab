@@ -14,11 +14,13 @@ export function SkillImage({
   skill,
   src,
   seed = 0,
+  priority = false,
   className,
 }: {
   skill: Skill
   src: string
   seed?: number
+  priority?: boolean
   className?: string
 }) {
   const [failed, setFailed] = useState(false)
@@ -30,7 +32,8 @@ export function SkillImage({
     <img
       src={src}
       alt={`${skill.name} — preview`}
-      loading="lazy"
+      loading={priority ? 'eager' : 'lazy'}
+      fetchPriority={priority ? 'high' : 'auto'}
       decoding="async"
       onError={() => setFailed(true)}
       className={cn('block h-full w-full object-cover', className)}

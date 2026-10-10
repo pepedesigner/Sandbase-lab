@@ -30,6 +30,10 @@ export default function PricingPage() {
 
       <Section className="bg-tint-mint !pt-12 md:!pt-16">
         <Container className="flex flex-col gap-8">
+          <div className="flex flex-col gap-3">
+            <p className="sb-eyebrow">Plans</p>
+            <h2 className="text-h2 max-w-[30rem] text-ink">Pick the access that fits.</h2>
+          </div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
             {PLANS.map((plan) => (
               <PriceCard key={plan.id} plan={plan} />

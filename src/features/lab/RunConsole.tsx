@@ -135,7 +135,7 @@ export function RunWorkbench({ skill }: { skill: Skill }) {
               {category.label} · {skill.version}
             </span>
           </div>
-          <h1 className="text-h1 text-ink">{skill.name}</h1>
+          <h2 className="text-h1 text-ink">{skill.name}</h2>
           <p className="text-body-sm text-ink-muted">{skill.tagline}</p>
         </div>
 
@@ -230,7 +230,7 @@ export function RunWorkbench({ skill }: { skill: Skill }) {
             />
           </div>
 
-          <div ref={logRef} className="h-[22rem] overflow-y-auto px-4 py-3" aria-live="polite" aria-busy={running}>
+          <div ref={logRef} className="h-[22rem] overflow-y-auto px-4 py-3" role="log" aria-busy={running}>
             {lines.length === 0 ? (
               <p className="font-mono text-mono-xs text-panel-fg-muted">
                 <span className="text-lime-300">$</span> waiting — press “Run in browser” to execute this Skill.

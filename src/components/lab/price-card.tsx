@@ -24,7 +24,7 @@ export function PriceCard({ plan, className }: { plan: Plan; className?: string 
         ) : null}
       </div>
       <div className="flex items-end gap-2">
-        <span className="text-plan-value tabular-nums" style={{ fontWeight: 500 }}>{plan.price}</span>
+        <span className="text-plan-value tabular-nums">{plan.price}</span>
         <span className={cn('pb-2 text-body-sm', dark ? 'opacity-70' : 'text-ink-muted')}>{plan.cadence}</span>
       </div>
       <p className={cn('text-body-sm', dark ? 'opacity-80' : 'text-ink-muted')}>{plan.blurb}</p>

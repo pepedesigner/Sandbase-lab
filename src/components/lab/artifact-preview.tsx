@@ -37,7 +37,7 @@ export function ArtifactPreview({
       {skill.category === 'web' && <WebArt skill={skill} tone={tone} seed={seed} />}
       {skill.category === 'slides' && <SlideArt skill={skill} tone={tone} seed={seed} />}
       {skill.category === 'video' && <VideoArt skill={skill} tone={tone} seed={seed} />}
-      {skill.category === 'image' && <ImageArt skill={skill} tone={tone} seed={seed} />}
+      {skill.category === 'image' && <ImageArt skill={skill} tone={tone} />}
     </svg>
   )
 }
@@ -195,12 +195,6 @@ function VideoArt({ skill, tone, seed }: { skill: Skill; tone: string; seed: num
   return (
     <g>
       <rect width="320" height="200" fill={PLATE} />
-      <rect width="320" height="200" fill="url(#vgrid)" opacity="0.5" />
-      <defs>
-        <pattern id="vgrid" width="16" height="16" patternUnits="userSpaceOnUse">
-          <path d="M16 0 L0 0 0 16" fill="none" stroke="#ffffff" strokeOpacity="0.06" strokeWidth="1" />
-        </pattern>
-      </defs>
       {shape === 0 ? (
         <g>
           {[0, 1, 2, 3].map((i) => (
@@ -267,20 +261,15 @@ function VideoArt({ skill, tone, seed }: { skill: Skill; tone: string; seed: num
 }
 
 /* ---------------------------------------------------------------- Image */
-function ImageArt({ skill, tone, seed }: { skill: Skill; tone: string; seed: number }) {
+function ImageArt({ skill, tone }: { skill: Skill; tone: string }) {
   const shape = skill.art.shape
   return (
     <g>
       <rect width="320" height="200" fill={PAPER} />
       {shape === 0 ? (
         <g>
-          <defs>
-            <linearGradient id={`og-${seed}`} x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stopColor={PAPER} />
-              <stop offset="1" stopColor={tone} stopOpacity="0.35" />
-            </linearGradient>
-          </defs>
-          <rect width="320" height="200" fill={`url(#og-${seed})`} />
+          <rect width="320" height="200" fill={tone} opacity="0.28" />
+          <rect x="200" y="0" width="120" height="200" fill={tone} opacity="0.22" />
           <text x="26" y="96" fontFamily={TITLE_FONT} fontSize="26" fontWeight="500" letterSpacing="-0.5" fill={INK}>
             {skill.art.title}
           </text>

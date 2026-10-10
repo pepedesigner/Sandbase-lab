@@ -76,6 +76,7 @@
   --border-secondary: #3d3661;
   --border-focus: rgba(217, 255, 67, 0.5);
   --active-overlay: rgba(217, 255, 67, 0.16);
+  --bg-overlay: rgba(6, 4, 16, 0.62);
   --button-primary-bg: #d9ff43;
   --button-primary-bg-hover: #e5ff78;
   --button-primary-fg: #0e0b1a;
@@ -122,6 +123,7 @@
   --border-secondary: #c9c6d0;
   --border-focus: rgba(94, 63, 255, 0.45);
   --active-overlay: rgba(94, 63, 255, 0.1);
+  --bg-overlay: rgba(14, 11, 26, 0.34);
   --button-primary-bg: #0e0b1a;
   --button-primary-bg-hover: #2a2926;
   --button-primary-fg: #f2f0f3;

@@ -18,11 +18,12 @@
   gap: 0.75rem;
   overflow: hidden;
   padding: 0.5rem 1.25rem;
-  background-color: var(--color-tint-cyan);
-  background-image: linear-gradient(to right, rgb(0 0 0 / .06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(0 0 0 / .06) 1px, transparent 1px);
+  background-color: var(--color-ink);
+  background-image: linear-gradient(to right, rgb(128 128 128 / .22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(128 128 128 / .22) 1px, transparent 1px);
   background-size: 8px 8px;
-  color: var(--color-tint-yellow-fg);
+  border-bottom: 1px solid var(--color-line);
+  color: var(--color-canvas);
   text-decoration: none;
   transition: color 240ms steps(6, end);
 }
@@ -31,13 +32,16 @@
   z-index: -1;
   inset: 0;
   pointer-events: none;
-  background-color: var(--color-tint-yellow);
+  background-color: var(--color-tint-blue);
+  background-image: linear-gradient(to right, rgb(0 0 0 / .06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(0 0 0 / .06) 1px, transparent 1px);
+  background-size: 8px 8px;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 240ms steps(6, end);
 }
 .announcement:hover,
-.announcement:focus-visible { color: var(--color-tint-yellow-fg); }
+.announcement:focus-visible { color: var(--color-tint-blue-fg); }
 .announcement:hover .announcementWipe,
 .announcement:focus-visible .announcementWipe { transform: scaleX(1); }
 .announcementName {
@@ -160,19 +164,27 @@
   letter-spacing: .08em;
   text-transform: uppercase;
 }
-.drawerRoot { position: absolute; z-index: 60; top: 7.25rem; right: 1rem; left: 1rem; }
-.backdrop { display: none; }
+.drawerRoot { position: fixed; z-index: 60; inset: 0; }
+.backdrop {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  background: var(--bg-overlay);
+}
 .drawer {
-  position: relative;
+  position: absolute;
+  top: 7.25rem;
+  right: 1rem;
+  left: 1rem;
   display: flex;
-  width: 100%;
   flex-direction: column;
   padding: .5rem;
   background: var(--color-surface);
   box-shadow: var(--shadow-lg);
   border-radius: 4px;
 }
-.drawerCloseRow { display: none; }
+.drawerCloseRow { display: flex; justify-content: flex-end; }
 .drawerClose {
   display: grid;
   min-width: 2.75rem;

@@ -20,7 +20,6 @@ export const PLANS: Plan[] = [
     features: [
       'Access all Premium Skills',
       'Install from the web or CLI',
-      'Run Skills in the browser',
       'Ongoing Skill updates',
       'New Premium Skills included',
       'Cancel whenever you need',
@@ -36,7 +35,6 @@ export const PLANS: Plan[] = [
     features: [
       'Access all Premium Skills',
       'Install from the web or CLI',
-      'Run Skills in the browser',
       'Ongoing Skill updates',
       'New Premium Skills included',
       'Save 34% a year',
@@ -54,7 +52,6 @@ export const PLANS: Plan[] = [
     features: [
       'Access all Premium Skills',
       'Install from the web or CLI',
-      'Run Skills in the browser',
       'Ongoing Skill updates',
       'New Premium Skills included',
       'No subscription or renewal bill',

@@ -124,7 +124,7 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
             {/* Gallery */}
             <div className="flex flex-col gap-4">
               <PixelFrame className="aspect-[16/10]">
-                <SkillImage skill={skill} src={skillMainImage(skill)} className="absolute inset-0" />
+                <SkillImage skill={skill} src={skillMainImage(skill)} priority className="absolute inset-0" />
               </PixelFrame>
               {gallery.length ? (
                 <div className={gallery.length === 1 ? 'grid grid-cols-1 gap-4' : 'grid grid-cols-2 gap-4'}>

@@ -7,9 +7,7 @@ export function FaqItem({ q, a, className }: { q: string; a: string; className?:
   return (
     <details className={cn('group border-t border-line', className)}>
       <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 [&::-webkit-details-marker]:hidden">
-        <span className="text-body-lg font-medium text-ink" style={{ fontSize: '1.0625rem' }}>
-          {q}
-        </span>
+        <span className="text-lede font-medium text-ink">{q}</span>
         <span aria-hidden="true" className="relative grid size-5 flex-none place-items-center">
           <span className="absolute h-px w-3.5 bg-ink-muted transition-colors group-hover:bg-accent" />
           <span className="absolute h-3.5 w-px bg-ink-muted transition-transform duration-300 group-open:scale-y-0 group-hover:bg-accent" />
