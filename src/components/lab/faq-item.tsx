@@ -1,5 +1,3 @@
-'use client'
-
 import { cn } from '@/lib/cn'
 
 /** A row that expands on click, using the grid-rows 0fr → 1fr technique. */

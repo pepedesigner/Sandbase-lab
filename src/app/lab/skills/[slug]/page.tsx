@@ -123,13 +123,13 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
 
             {/* Gallery */}
             <div className="flex flex-col gap-4">
-              <PixelFrame className="aspect-[16/10]">
+              <PixelFrame className="aspect-video">
                 <SkillImage skill={skill} src={skillMainImage(skill)} priority className="absolute inset-0" />
               </PixelFrame>
               {gallery.length ? (
                 <div className={gallery.length === 1 ? 'grid grid-cols-1 gap-4' : 'grid grid-cols-2 gap-4'}>
                   {gallery.map((src, index) => (
-                    <PixelFrame key={src} sweep={false} className="aspect-[4/3]">
+                    <PixelFrame key={src} sweep={false} className="aspect-video">
                       <SkillImage skill={skill} src={src} seed={index + 1} className="absolute inset-0" />
                     </PixelFrame>
                   ))}

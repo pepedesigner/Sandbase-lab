@@ -43,14 +43,16 @@ Open any Skill and press **Run in browser**. The workbench replays the workflow 
 
 - **Faithful to the SandBase design language** — the colour tokens, type ramp (`Clash Grotesk` + mono labels), square corners, `pixel-tile` grids and registration marks are lifted straight from the SandBase front end, so the Lab drops into the real site without a redesign.
 - **Light & dark** — the full day/night token set with a theme control in the header; defaults to the paper look.
+- **Catalog that works** — search, multi-select category facets with counts, a free/premium filter and real sorting (featured, most installed, newest), with an empty state.
 - **Real previews** — every card, gallery and run result shows the Skill's actual published result artwork (downloaded locally, no hotlinking), with a procedural SVG scene as a fallback if an image is missing. See [`docs/previews.md`](docs/previews.md).
-- **Accessible** — semantic landmarks, one `h1` per page with no skipped heading levels, a skip link, keyboard-friendly disclosures, focus-visible states and reduced-motion fallbacks throughout.
+- **Self-hosted fonts, no third-party requests** — Clash Grotesk and JetBrains Mono are loaded through `next/font`, so they are bundled and preloaded from this origin. No external stylesheet, no font CDN, no render-blocking request.
+- **Accessible** — semantic landmarks, one `h1` per page with no skipped heading levels, a skip link, keyboard-friendly disclosures, one on-brand focus ring and reduced-motion fallbacks throughout.
 - **Responsive** — verified from 390px to 1440px with no horizontal overflow; the mobile navigation opens as a fixed, dismissable sheet.
-- **Static** — every route is prerendered.
+- **Static** — every route is prerendered, plus `robots.txt` and a generated `sitemap.xml`.
 
 ## Tech stack
 
-`Next.js 14` (App Router) · `React 18` · `TypeScript` · `Tailwind CSS 3.4` · CSS Modules · `lucide-react`. No database, no backend, no environment variables.
+`Next.js 14` (App Router) · `React 18` · `TypeScript` · `Tailwind CSS 3.4` · CSS Modules · `lucide-react` · ESLint. No database, no backend, no environment variables.
 
 ## Getting started
 
@@ -64,6 +66,7 @@ Other scripts:
 ```bash
 npm run build      # production build
 npm run start      # serve the production build
+npm run lint       # eslint (next/core-web-vitals)
 npm run typecheck  # tsc --noEmit
 ```
 
@@ -72,8 +75,9 @@ npm run typecheck  # tsc --noEmit
 ```
 src/
   app/
-    layout.tsx              # fonts, theme bootstrap, header + footer
+    layout.tsx              # fonts (next/font), theme bootstrap, header + footer
     globals.css             # design tokens (colors, type, pixel grid)
+    robots.ts sitemap.ts    # generated robots.txt and sitemap.xml
     lab/
       page.tsx              # Lab home
       skills/page.tsx       # catalog
@@ -83,17 +87,21 @@ src/
   components/
     site-header.tsx         # SandBase nav incl. the new Lab entry
     ui/                     # design-system primitives (button, section, …)
-    lab/                    # skill card, artifact preview, badges, FAQ, …
+    lab/                    # skill card, image, artifact preview, badges, FAQ, …
   features/lab/
-    SkillCatalog.tsx        # search + filters
+    SkillCatalog.tsx        # search, filters and sorting
     RunConsole.tsx          # the run workbench
     run-simulator.ts        # deterministic streaming engine
   content/                  # skills, categories, agents, pricing, faq
+  fonts/                    # Clash Grotesk webfont source
+public/
+  skills/<slug>/            # real result previews (card / main / alt-N)
+  logos/agents/             # host-agent marks
 ```
 
 ## Design language
 
-Ink `#0e0b1a` on paper `#f2f0f3`, with two spot inks — violet `#8b6fff` and lime `#d9ff43`. Headings set in **Clash Grotesk** at weight 500; everything data-ish (labels, ids, units, log lines) in **Geist Mono / JetBrains Mono**, uppercase and tracked. Corners are square, cards are borderless tone changes, and motion is short, stepped and always paired with a reduced-motion fallback.
+Ink `#0e0b1a` on paper `#f2f0f3`, with two spot inks — violet `#8b6fff` and lime `#d9ff43`. Headings set in **Clash Grotesk** at weight 500; everything data-ish (labels, ids, units, log lines) in **JetBrains Mono**, uppercase and tracked. Corners are square, cards are borderless tone changes, and motion is short, stepped and always paired with a reduced-motion fallback.
 
 ## Notes
 

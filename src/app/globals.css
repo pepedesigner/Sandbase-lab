@@ -8,14 +8,6 @@
  * lime spot inks on paper/ink stock, square corners, no resting shadows).
  * ------------------------------------------------------------------ */
 
-@font-face {
-  font-family: 'Clash Grotesk';
-  src: url('/ClashGrotesk-Variable.woff2') format('woff2');
-  font-weight: 200 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 @layer utilities {
   .page-measure { margin-inline: var(--page-inset); }
   .pixel-tile {
@@ -53,9 +45,9 @@
   --color-plate: #1e1936;
   --color-positive: #d9ff43;
   --color-positive-bright: #d9ff43;
-  --font-family-heading: 'Clash Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Roboto, sans-serif;
-  --font-family-body: 'Clash Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Roboto, sans-serif;
-  --font-family-mono: 'JetBrains Mono', 'Geist Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
+  --font-family-heading: var(--font-clash), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-body: var(--font-clash), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: var(--font-mono), 'SF Mono', ui-monospace, monospace;
   --font-weight-normal: 400;
   --font-weight-medium: 450;
   --font-weight-semibold: 500;
@@ -228,6 +220,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   border: 0;
 }
 ::selection { background: var(--active-overlay); color: var(--text-primary); }
+
+/* One on-brand focus ring everywhere; `:where()` keeps specificity at 0 so
+ * component styles can still override it. */
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
 
 /* Shared type roles for hand-rolled surfaces. */
 .sb-eyebrow {

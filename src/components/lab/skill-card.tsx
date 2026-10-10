@@ -28,7 +28,7 @@ export function SkillCard({ skill, className }: { skill: Skill; className?: stri
       href={`/lab/skills/${skill.slug}`}
       className={cn('group flex flex-col bg-surface transition-colors hover:bg-surface-alt', className)}
     >
-      <PixelFrame className="aspect-[16/10]">
+      <PixelFrame className="aspect-video">
         <SkillImage skill={skill} src={skillCardImage(skill)} className="absolute inset-0" />
       </PixelFrame>
       <div className="flex flex-1 flex-col gap-3 p-4">

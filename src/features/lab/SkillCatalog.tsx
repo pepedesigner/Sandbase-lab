@@ -8,6 +8,13 @@ import type { Skill } from '@/content/skills'
 import { cn } from '@/lib/cn'
 
 type PriceFilter = 'all' | 'free' | 'premium'
+type SortKey = 'featured' | 'installs' | 'newest'
+
+const SORTS: Array<{ value: SortKey; label: string }> = [
+  { value: 'featured', label: 'Featured' },
+  { value: 'installs', label: 'Most installed' },
+  { value: 'newest', label: 'Newest' },
+]
 
 const CATEGORY_KEYS = CATEGORIES.map((category) => category.key)
 
@@ -15,6 +22,7 @@ export function SkillCatalog({ skills }: { skills: Skill[] }) {
   const [query, setQuery] = useState('')
   const [categories, setCategories] = useState<Set<SkillCategory>>(new Set())
   const [price, setPrice] = useState<PriceFilter>('all')
+  const [sort, setSort] = useState<SortKey>('featured')
 
   const counts = useMemo(() => {
     const map = new Map<SkillCategory, number>()
@@ -25,13 +33,16 @@ export function SkillCatalog({ skills }: { skills: Skill[] }) {
 
   const results = useMemo(() => {
     const needle = query.trim().toLowerCase()
-    return skills.filter((skill) => {
+    const filtered = skills.filter((skill) => {
       if (categories.size && !categories.has(skill.category)) return false
       if (price !== 'all' && skill.price !== price) return false
       if (!needle) return true
       return [skill.name, skill.tagline, skill.description, ...skill.tags].join(' ').toLowerCase().includes(needle)
     })
-  }, [categories, price, query, skills])
+    if (sort === 'installs') return [...filtered].sort((a, b) => b.installs - a.installs)
+    if (sort === 'newest') return [...filtered].sort((a, b) => Date.parse(b.updated) - Date.parse(a.updated))
+    return filtered
+  }, [categories, price, query, skills, sort])
 
   const toggleCategory = (key: SkillCategory) => {
     setCategories((prev) => {
@@ -126,11 +137,24 @@ export function SkillCatalog({ skills }: { skills: Skill[] }) {
       </aside>
 
       <div className="flex min-w-0 flex-col gap-6">
-        <div className="flex items-center justify-between border-b border-line pb-4">
+        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-b border-line pb-4">
           <h2 className="font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">
             {results.length} {results.length === 1 ? 'Skill' : 'Skills'}
           </h2>
-          <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">Sorted by relevance</span>
+          <label className="flex items-center gap-2 font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">
+            Sort
+            <select
+              value={sort}
+              onChange={(event) => setSort(event.target.value as SortKey)}
+              className="cursor-pointer bg-transparent font-mono text-label-xs uppercase tracking-[0.08em] text-ink outline-none"
+            >
+              {SORTS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
         </div>
 
         {results.length === 0 ? (

@@ -1,9 +1,29 @@
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
+import localFont from 'next/font/local'
+import { JetBrains_Mono } from 'next/font/google'
 
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import './globals.css'
+
+/* Clash Grotesk is self-hosted from the SandBase webfont; JetBrains Mono covers
+ * every label, id and log line. Both are loaded through next/font, so they are
+ * bundled, preloaded and served from our own origin — no third-party request
+ * and no render-blocking stylesheet. */
+const clash = localFont({
+  src: '../fonts/ClashGrotesk-Variable.woff2',
+  variable: '--font-clash',
+  weight: '200 700',
+  display: 'swap',
+})
+
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-mono',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lab.sandbase.ai'),
@@ -18,6 +38,13 @@ export const metadata: Metadata = {
     title: 'SandBase Lab — Agent Skills you can run in the browser',
     description: 'Browse Agent Skills and run them right in your browser.',
     type: 'website',
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'SandBase Lab' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SandBase Lab — Agent Skills you can run in the browser',
+    description: 'Browse Agent Skills and run them right in your browser.',
+    images: ['/og.png'],
   },
 }
 
@@ -35,15 +62,13 @@ const themeBootstrapScript = `(function(){try{var p=localStorage.getItem('lab-th
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" data-theme="light" className="light-mode" suppressHydrationWarning>
+    <html
+      lang="en"
+      data-theme="light"
+      className={`${clash.variable} ${mono.variable} light-mode`}
+      suppressHydrationWarning
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preload" href="/ClashGrotesk-Variable.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <link rel="icon" href="/icon.svg" />
         <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
       </head>

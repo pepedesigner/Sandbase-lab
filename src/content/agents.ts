@@ -7,7 +7,7 @@ export interface AgentRef {
 /** Coding agents / hosts a Skill can run inside. Logos live in /public/logos/agents. */
 export const AGENTS: Record<string, AgentRef> = {
   'claude-code': { key: 'claude-code', label: 'Claude Code', logo: '/logos/agents/claude-code.png' },
-  codex: { key: 'codex', label: 'Codex', logo: '/logos/agents/codex.webp' },
+  codex: { key: 'codex', label: 'Codex', logo: '/logos/agents/codex.png' },
   chatgpt: { key: 'chatgpt', label: 'ChatGPT', logo: '/logos/agents/chatgpt.svg' },
   cursor: { key: 'cursor', label: 'Cursor', logo: '/logos/agents/cursor.png' },
   gemini: { key: 'gemini', label: 'Gemini CLI', logo: '/logos/agents/gemini-cli.png' },

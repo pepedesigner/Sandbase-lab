@@ -265,7 +265,7 @@ export function RunWorkbench({ skill }: { skill: Skill }) {
                 {skill.art.title} · {skill.art.sub}
               </span>
             </div>
-            <PixelFrame className="aspect-[16/9]">
+            <PixelFrame className="aspect-video">
               <SkillImage skill={skill} src={skillMainImage(skill)} className="absolute inset-0" />
             </PixelFrame>
             <div className="flex flex-wrap gap-3">
