@@ -28,7 +28,7 @@
   --color-line-strong: #f2f0f3;
   --color-ink: #f2f0f3;
   --color-ink-muted: #a29ea9;
-  --color-ink-subtle: #8a8698;
+  --color-ink-subtle: #8f8b9b;
   --color-accent: #d9ff43;
   --color-panel: #3a3070;
   --color-panel-fg: #f2f0f3;
@@ -89,7 +89,7 @@
   --color-line-strong: #0e0b1a;
   --color-ink: #0e0b1a;
   --color-ink-muted: #5d5969;
-  --color-ink-subtle: #757183;
+  --color-ink-subtle: #6b6779;
   --color-accent: #5e3fff;
   --color-panel: #0e0b1a;
   --color-panel-fg: #f2f0f3;
@@ -136,7 +136,7 @@ html[data-theme='dark'] {
   --color-line-strong: #f2f0f3;
   --color-ink: #f2f0f3;
   --color-ink-muted: #a29ea9;
-  --color-ink-subtle: #8a8698;
+  --color-ink-subtle: #8f8b9b;
   --color-accent: #d9ff43;
   --color-panel: #3a3070;
   --color-tint-cyan: #8b6fff;
@@ -228,32 +228,21 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   outline-offset: 2px;
 }
 
-/* Shared type roles for hand-rolled surfaces. */
-.sb-eyebrow {
-  margin: 0;
-  color: var(--text-accent);
-  font-family: var(--font-family-mono);
-  font-size: .6875rem;
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+/* Shared type roles for hand-rolled surfaces. Inside `@layer components` so a
+ * Tailwind colour utility can still override the default (an unlayered rule
+ * would win over every utility, whatever the class order). */
+@layer components {
+  .sb-eyebrow {
+    margin: 0;
+    color: var(--text-accent);
+    font-family: var(--font-family-mono);
+    font-size: .6875rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
 }
-.sb-heading {
-  margin: 0;
-  max-width: 980px;
-  color: var(--text-primary);
-  font-size: clamp(1.875rem, 1.55rem + 1vw, 2.375rem);
-  font-weight: var(--font-weight-semibold);
-  line-height: 1.12;
-}
-.sb-lede {
-  max-width: 760px;
-  color: var(--text-muted);
-  font-size: .9375rem;
-  line-height: 1.7;
-}
-
 .input-base {
   width: 100%;
   padding: .625rem .75rem;
@@ -270,8 +259,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .input-base::placeholder { color: var(--text-muted); }
 .input-base:focus { border-color: var(--text-accent); box-shadow: 0 0 0 2px var(--active-overlay); }
 textarea.input-base { resize: vertical; }
-
-.card-hover { transition: background-color 150ms ease; }
 
 /* Hero coverflow: the auto-advance progress line, restarted each cycle. */
 @keyframes sb-progress {

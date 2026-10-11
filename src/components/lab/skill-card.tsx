@@ -8,11 +8,14 @@ import { skillAgents, skillCardImage, type Skill } from '@/content/skills'
 import { cn } from '@/lib/cn'
 
 export function SkillBadge({ skill }: { skill: Skill }) {
+  /* Both badges take their fill from a spot ink and their text from the ink
+   * token, which is what keeps them legible in both themes: tint-blue is violet
+   * by day and lime at night, tint-cyan is the reverse. */
   if (skill.badge === 'new') {
-    return <span className="bg-tint-cyan px-1.5 py-0.5 font-mono text-label-xs uppercase tracking-[0.08em] text-ink">New</span>
+    return <span className="bg-tint-blue px-1.5 py-0.5 font-mono text-label-xs uppercase tracking-[0.08em] text-tint-yellow-fg">New</span>
   }
   if (skill.badge === 'popular') {
-    return <span className="bg-tint-blue px-1.5 py-0.5 font-mono text-label-xs uppercase tracking-[0.08em] text-tint-blue-fg">Popular</span>
+    return <span className="bg-tint-cyan px-1.5 py-0.5 font-mono text-label-xs uppercase tracking-[0.08em] text-tint-yellow-fg">Popular</span>
   }
   if (skill.price === 'premium') {
     return <span className="bg-ink px-1.5 py-0.5 font-mono text-label-xs uppercase tracking-[0.08em] text-canvas">Pro</span>

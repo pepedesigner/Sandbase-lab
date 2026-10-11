@@ -203,7 +203,9 @@ export function RunWorkbench({ skill }: { skill: Skill }) {
 
       {/* Right: console */}
       <div className="flex min-w-0 flex-col gap-4">
-        <div className="flex flex-col bg-ink text-panel-fg">
+        {/* `bg-panel`, not `bg-ink`: ink flips to paper at night, which left
+         * the panel's light-grey text at 1.9:1. Panel is dark in both themes. */}
+        <div className="flex flex-col bg-panel text-panel-fg">
           <div className="flex flex-wrap items-center gap-3 border-b border-white/10 px-4 py-3">
             <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-panel-fg-muted">
               {skill.slug}

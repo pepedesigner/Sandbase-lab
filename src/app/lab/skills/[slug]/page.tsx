@@ -163,7 +163,7 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
             </div>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
               <div className="flex flex-col gap-3">
-                <h3 className="font-mono text-label-sm uppercase tracking-[0.09em] text-ink-subtle">What you get</h3>
+                <h3 className="font-mono text-label-sm uppercase tracking-[0.09em] text-ink-muted">What you get</h3>
                 <ul className="flex flex-col gap-3">
                   {skill.whatYouGet.map((item) => (
                     <li key={item} className="flex gap-2.5 text-body-sm text-ink-muted">
@@ -175,7 +175,7 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
               </div>
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-3">
-                  <h3 className="font-mono text-label-sm uppercase tracking-[0.09em] text-ink-subtle">Good fit</h3>
+                  <h3 className="font-mono text-label-sm uppercase tracking-[0.09em] text-ink-muted">Good fit</h3>
                   <ul className="flex flex-col gap-3">
                     {skill.goodFit.map((item) => (
                       <li key={item} className="flex gap-2.5 text-body-sm text-ink-muted">
@@ -186,7 +186,7 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
                   </ul>
                 </div>
                 <div className="flex flex-col gap-3">
-                  <h3 className="font-mono text-label-sm uppercase tracking-[0.09em] text-ink-subtle">Not for</h3>
+                  <h3 className="font-mono text-label-sm uppercase tracking-[0.09em] text-ink-muted">Not for</h3>
                   <ul className="flex flex-col gap-3">
                     {skill.notFor.map((item) => (
                       <li key={item} className="flex gap-2.5 text-body-sm text-ink-muted">

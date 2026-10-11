@@ -14,11 +14,11 @@ export function PriceCard({ plan, className }: { plan: Plan; className?: string 
       )}
     >
       <div className="flex items-center justify-between gap-3">
-        <h3 className={cn('font-mono text-label-sm uppercase tracking-[0.09em]', dark ? 'text-tint-cyan' : 'text-ink-subtle')}>
+        <h3 className={cn('font-mono text-label-sm uppercase tracking-[0.09em]', dark ? 'text-canvas/80' : 'text-ink-subtle')}>
           {plan.name}
         </h3>
         {plan.tag ? (
-          <span className={cn('px-1.5 py-0.5 font-mono text-label-xs uppercase tracking-[0.08em]', dark ? 'bg-tint-cyan text-ink' : 'bg-tint-blue text-tint-blue-fg')}>
+          <span className={cn('px-1.5 py-0.5 font-mono text-label-xs uppercase tracking-[0.08em]', dark ? 'bg-tint-yellow text-tint-yellow-fg' : 'bg-tint-mint-strong text-tint-yellow-fg')}>
             {plan.tag}
           </span>
         ) : null}
@@ -40,7 +40,9 @@ export function PriceCard({ plan, className }: { plan: Plan; className?: string 
         href="/lab/skills"
         className={cn(
           'mt-2 inline-flex items-center justify-center px-6 py-[13px] text-body font-medium transition-colors',
-          dark ? 'bg-tint-cyan text-ink hover:bg-canvas' : 'bg-ink text-canvas hover:bg-tint-cyan hover:text-ink',
+          dark
+            ? 'bg-tint-yellow text-tint-yellow-fg hover:bg-canvas hover:text-ink'
+            : 'bg-ink text-canvas hover:bg-tint-cyan hover:text-ink',
         )}
       >
         {plan.cta}

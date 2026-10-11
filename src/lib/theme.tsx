@@ -37,7 +37,7 @@ function emit() {
 }
 
 /** Theme preference store, mirroring the SandBase website switcher. */
-export function useTheme() {
+function useTheme() {
   const preference = useSyncExternalStore(subscribe, readPreference, () => 'light' as ThemePreference)
   const setPreference = useCallback((next: ThemePreference) => {
     localStorage.setItem(STORAGE_KEY, next)

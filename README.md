@@ -108,6 +108,8 @@ Ink `#0e0b1a` on paper `#f2f0f3`, with two spot inks — violet `#8b6fff` and li
 
 This is an independent demo that reuses the SandBase visual language for illustrative purposes. Skill names, descriptions and preview artwork are the published results from [skillry.dev](https://skillry.dev); product names and logos of third-party agents (Claude Code, Codex, Cursor, Gemini, …) belong to their respective owners.
 
+**Contrast.** Every text node was checked against WCAG AA in both themes. The night theme passes outright. In the day theme the only remaining misses are the deliberately-kept SandBase token pairing — `tint-blue` (violet) grounds with `tint-blue-fg` (white) text, used by the hero, the closing CTA and the pricing header — which lands at 3.6:1. Display type clears the large-text bar there; small labels on those grounds do not. Changing `tint-blue-fg` for those sections is a one-line fix if you want full AA.
+
 ## License
 
 [MIT](LICENSE)

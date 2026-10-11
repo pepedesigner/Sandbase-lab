@@ -50,7 +50,7 @@ function SectionHead({
 }) {
   return (
     <div className="flex flex-col gap-4">
-      <p className={dark ? 'sb-eyebrow text-tint-cyan' : 'sb-eyebrow'}>{eyebrow}</p>
+      <p className={dark ? 'sb-eyebrow text-tint-mint-strong' : 'sb-eyebrow'}>{eyebrow}</p>
       <WireHead
         title={title}
         lede={lede}
