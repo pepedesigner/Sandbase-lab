@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 
 import { WorksWithStrip } from '@/components/lab/agent-badges'
 import { FaqList } from '@/components/lab/faq-item'
-import { HeroCarousel } from '@/components/lab/hero-carousel'
+import { HeroSkillMarquee } from '@/components/lab/hero-skill-marquee'
 import { PriceCard } from '@/components/lab/price-card'
 import { SkillGrid } from '@/components/lab/skill-card'
 import { ButtonLink } from '@/components/ui/button'
@@ -14,7 +14,7 @@ import { WireHead } from '@/components/ui/wire-head'
 import { CATEGORIES } from '@/content/categories'
 import { GENERAL_FAQ } from '@/content/faq'
 import { PLANS } from '@/content/pricing'
-import { freeSkills, featuredSkills, skillsByCategory } from '@/content/skills'
+import { freeSkills, featuredSkills, SKILLS, skillsByCategory } from '@/content/skills'
 
 export const metadata: Metadata = {
   title: 'Agent Skills with taste',
@@ -103,7 +103,7 @@ export default function LabHomePage() {
               </Link>
             </div>
           </div>
-          <HeroCarousel skills={featuredSkills(6)} className="w-full" />
+          <HeroSkillMarquee skills={SKILLS} />
           <div className="flex flex-col gap-3 border-t border-tint-blue-fg/25 pt-6 lg:col-span-2">
             <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-tint-blue-fg">Works with</span>
             <WorksWithStrip />

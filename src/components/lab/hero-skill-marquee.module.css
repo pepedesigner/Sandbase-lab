@@ -1,0 +1,35 @@
+.lane {
+  position: relative;
+  height: 30rem;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 4.5rem, #000 calc(100% - 4.5rem), transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 4.5rem, #000 calc(100% - 4.5rem), transparent 100%);
+}
+
+.track {
+  animation: marqueeY var(--lane-duration, 40s) linear infinite;
+}
+
+/* Anything that moves for more than five seconds has to be stoppable — the
+ * pointer and the keyboard both do it, and the button below says so. */
+.lane:hover .track,
+.lane:focus-within .track {
+  animation-play-state: paused;
+}
+.paused .track {
+  animation-play-state: paused;
+}
+
+.item { margin-bottom: 1.25rem; }
+
+@keyframes marqueeY {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; }
+  /* the list stays reachable, just as a manual scroller */
+  .lane { overflow-y: auto; scrollbar-width: none; }
+  .lane::-webkit-scrollbar { display: none; }
+}

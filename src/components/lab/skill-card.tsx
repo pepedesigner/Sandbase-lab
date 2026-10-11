@@ -20,14 +20,21 @@ export function SkillBadge({ skill }: { skill: Skill }) {
   return <span className="bg-surface-alt px-1.5 py-0.5 font-mono text-label-xs uppercase tracking-[0.08em] text-ink">Free</span>
 }
 
-export function SkillCard({ skill, className }: { skill: Skill; className?: string }) {
+export function SkillCard({
+  skill,
+  decorative = false,
+  className,
+}: {
+  skill: Skill
+  decorative?: boolean
+  className?: string
+}) {
   const agents = skillAgents(skill)
   const category = CATEGORY_BY_KEY[skill.category]
-  return (
-    <Link
-      href={`/lab/skills/${skill.slug}`}
-      className={cn('group flex flex-col bg-surface transition-colors hover:bg-surface-alt', className)}
-    >
+  const classes = cn('group flex flex-col bg-surface transition-colors hover:bg-surface-alt', className)
+
+  const content = (
+    <>
       <PixelFrame className="aspect-video">
         <SkillImage skill={skill} src={skillCardImage(skill)} className="absolute inset-0" />
       </PixelFrame>
@@ -46,6 +53,22 @@ export function SkillCard({ skill, className }: { skill: Skill; className?: stri
           </span>
         </div>
       </div>
+    </>
+  )
+
+  /* The looping marquee renders the list twice; the second pass is a visual
+   * stand-in only, so it is hidden from assistive tech and skipped by tab. */
+  if (decorative) {
+    return (
+      <div aria-hidden="true" className={classes}>
+        {content}
+      </div>
+    )
+  }
+
+  return (
+    <Link href={`/lab/skills/${skill.slug}`} className={classes}>
+      {content}
     </Link>
   )
 }
