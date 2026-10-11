@@ -43,7 +43,7 @@ Open any Skill and press **Run in browser**. The workbench replays the workflow 
 
 - **Faithful to the SandBase design language** — the colour tokens, type ramp (`Clash Grotesk` + mono labels), square corners, `pixel-tile` grids and registration marks are lifted straight from the SandBase front end, so the Lab drops into the real site without a redesign.
 - **Light & dark** — the full day/night token set with a theme control in the header; defaults to the paper look.
-- **Hero Skill wall** — the home hero is a looping wall of full-size Skill cards: two lanes drifting at slightly different speeds behind a mask, so cards fade in and out rather than hard-cutting. Hover, focus or the Pause button stops it, and `prefers-reduced-motion` turns it into a plain manual scroller.
+- **Hero Skill wall** — the home hero is a looping wall of full-size Skill cards: two lanes drifting at slightly different speeds behind a mask, so cards fade in and out rather than hard-cutting. Hovering or focusing a card stops the motion, and `prefers-reduced-motion` turns the lanes into plain manual scrollers.
 - **Catalog that works** — search, multi-select category facets with counts, a free/premium filter and real sorting (featured, most installed, newest), with an empty state.
 - **Real previews** — every card, gallery and run result shows the Skill's actual published result artwork (downloaded locally, no hotlinking), with a procedural SVG scene as a fallback if an image is missing. See [`docs/previews.md`](docs/previews.md).
 - **Self-hosted fonts, no third-party requests** — Clash Grotesk and JetBrains Mono are loaded through `next/font`, so they are bundled and preloaded from this origin. No external stylesheet, no font CDN, no render-blocking request.

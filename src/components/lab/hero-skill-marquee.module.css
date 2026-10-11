@@ -11,12 +11,9 @@
 }
 
 /* Anything that moves for more than five seconds has to be stoppable — the
- * pointer and the keyboard both do it, and the button below says so. */
+ * pointer and the keyboard both do it, and reduced motion removes it. */
 .lane:hover .track,
 .lane:focus-within .track {
-  animation-play-state: paused;
-}
-.paused .track {
   animation-play-state: paused;
 }
 
