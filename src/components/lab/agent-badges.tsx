@@ -50,7 +50,9 @@ export function WorksWithStrip({ className }: { className?: string }) {
       {agents.map((agent) => (
         <AgentChip key={agent.key} agent={agent} size={30} />
       ))}
-      <span className="ml-1 font-mono text-label-xs uppercase tracking-[0.08em] text-ink-muted">and more</span>
+      {/* Inherits the surrounding colour: this strip sits on the accent ground,
+       * where the muted-on-canvas grey only reached 1.9:1. */}
+      <span className="ml-1 font-mono text-label-xs uppercase tracking-[0.08em]">and more</span>
     </div>
   )
 }

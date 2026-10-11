@@ -42,7 +42,7 @@ export function HeroSkillMarquee({ skills }: { skills: Skill[] }) {
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-        <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-tint-blue-fg/70">
+        <span className="font-mono text-label-xs uppercase tracking-[0.09em]">
           The whole library · looping · pauses on hover
         </span>
         <button
