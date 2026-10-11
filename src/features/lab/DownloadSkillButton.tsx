@@ -24,7 +24,7 @@ export function DownloadSkillButton({ skill, className }: { skill: Skill; classN
         className,
       )}
     >
-      Download SKILL.md
+      Download the SKILL.md
     </button>
   )
 }

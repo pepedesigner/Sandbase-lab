@@ -5,7 +5,7 @@ import styles from './site-footer.module.css'
 
 const SANDBASE = 'https://www.sandbase.ai'
 const REPO = 'https://github.com/pepedesigner/Sandbase-lab'
-const tagline = 'Agent Skills with taste — browse the catalog, then run any Skill straight in your browser.'
+const tagline = 'Agent Skills that make real things. Browse the catalog and run any one straight on the page.'
 
 type FooterLink = { to: string; label: string; external?: boolean }
 

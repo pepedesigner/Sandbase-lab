@@ -17,22 +17,28 @@ import { PLANS } from '@/content/pricing'
 import { freeSkills, featuredSkills, SKILLS, skillsByCategory } from '@/content/skills'
 
 export const metadata: Metadata = {
-  title: 'Agent Skills with taste',
+  title: 'Your ideas. Agents do the rest',
   description:
-    'Browse original Agent Skills for web, slides, image and video work — then run any of them right in your browser. Built on the SandBase design language.',
+    'Agent Skills that make real things — decks, landing pages, launch films, character art — and run right on the page: no keys, no install, no cost.',
 }
 
 const STUDIO_STEPS = [
-  { n: '01', title: 'Design the result', body: 'We art-direct the finished output first: layout, type, colour and motion.' },
-  { n: '02', title: 'Write the workflow', body: 'Original instructions, templates and scripts, packaged as one SKILL.md.' },
-  { n: '03', title: 'Run it for real', body: 'Every Skill page shows a real result it made — and here you can run it yourself.' },
-  { n: '04', title: 'Keep it current', body: 'The same studio updates each Skill as agents and models change.' },
+  { n: '01', title: 'Pick a Skill', body: 'A deck, a landing page, a launch film, a set of avatars — or a problem none of them cover.' },
+  { n: '02', title: 'Bring your input', body: 'A sentence or a photo. The Skill page shows the result you get before you run it.' },
+  { n: '03', title: 'Agents do the work', body: 'The Skill runs the same workflow your agent would — reading, planning, generating, rendering.' },
+  { n: '04', title: 'Keep or install it', body: 'Download the result, or install the Skill in one line and make your own.' },
 ]
 
 const CONNECT_STEPS = [
-  { n: '01', title: 'Discover a Skill', body: 'Browse the catalog and open any Skill to see what it produces.' },
-  { n: '02', title: 'Run it in the browser', body: 'Try it instantly in the Lab workbench — no install, no keys.' },
-  { n: '03', title: 'Install & verify', body: 'Copy the install command and your agent lives it in one line.' },
+  { n: '01', title: 'Find a Skill', body: 'Browse the catalog and open any one to see the result it makes.' },
+  { n: '02', title: 'Run it here', body: 'Try it on the page first — no install, no keys, no cost.' },
+  { n: '03', title: 'Install in one line', body: 'Copy the command and your agent collects the SKILL.md, templates and scripts.' },
+]
+
+const HERO_STATS = [
+  { value: String(SKILLS.length), label: 'Skills you can run' },
+  { value: String(SKILLS.filter((skill) => skill.price === 'free').length), label: 'Free to try' },
+  { value: String(CATEGORIES.length), label: 'Categories' },
 ]
 
 function SectionHead({
@@ -80,12 +86,12 @@ export default function LabHomePage() {
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-6 md:max-w-[42rem]">
               <p className="font-mono text-label-sm font-bold uppercase tracking-[0.12em] text-tint-blue-fg">
-                SandBase Lab — Agent Skills
+                SandBase Lab · Free to try
               </p>
-              <h1 className="text-display text-balance text-tint-blue-fg">Agent Skills with taste.</h1>
+              <h1 className="text-display text-balance text-tint-blue-fg">Your ideas. Agents do the rest.</h1>
               <p className="max-w-[42rem] text-lede-lg text-pretty text-tint-blue-fg">
-                Original Skills for web, slides, image and video work — designed, written and tested by our studio. Browse the
-                catalog, then run any Skill right here in the browser.
+                Agent Skills that make real things — decks, landing pages, launch films, character art. Open any one and it
+                runs here on the page: no keys, no install, no cost.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3">
@@ -93,15 +99,23 @@ export default function LabHomePage() {
                 href="/lab/skills"
                 className="inline-flex items-center justify-center bg-ink px-6 py-[13px] text-body font-medium text-canvas transition-colors hover:bg-tint-cyan hover:text-ink"
               >
-                Browse Skills
+                Try a Skill
               </Link>
               <Link
                 href="/lab/skills/dot-avatar-maker"
                 className="inline-flex items-center justify-center px-6 py-[13px] text-body font-medium text-tint-blue-fg ring-1 ring-inset ring-tint-blue-fg transition-colors hover:bg-tint-blue-fg hover:text-tint-blue"
               >
-                Run one now
+                Explore everything
               </Link>
             </div>
+            <dl className="grid grid-cols-3 gap-5 border-t border-tint-blue-fg/25 pt-6">
+              {HERO_STATS.map((stat) => (
+                <div key={stat.label} className="flex flex-col gap-1">
+                  <dt className="font-mono text-h2 tabular-nums text-tint-blue-fg">{stat.value}</dt>
+                  <dd className="font-mono text-label-xs uppercase tracking-[0.09em] text-tint-blue-fg">{stat.label}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
           <HeroSkillMarquee skills={SKILLS} />
           <div className="flex flex-col gap-3 border-t border-tint-blue-fg/25 pt-6 lg:col-span-2">
@@ -115,10 +129,10 @@ export default function LabHomePage() {
       <Section className="bg-canvas">
         <Container className="flex flex-col gap-11">
           <SectionHead
-            eyebrow="Featured Agent Skills"
-            title="New from our studio"
-            lede="Every Skill here is designed, written and tested in-house — and runnable on this page."
-            action={{ href: '/lab/skills', label: 'View all skills' }}
+            eyebrow="Featured Skills"
+            title="Fresh from the studio"
+            lede="Designed, written and tested by us, then runnable right here on the page. Not a prompt, not a mock-up."
+            action={{ href: '/lab/skills', label: 'View all' }}
           />
           <SkillGrid skills={featuredSkills(8)} />
         </Container>
@@ -128,10 +142,10 @@ export default function LabHomePage() {
       <Section className="bg-tint-mint">
         <Container className="flex flex-col gap-11">
           <SectionHead
-            eyebrow="Free Agent Skills"
-            title="Install one, run it end to end"
-            lede="Keep what it makes. No card, no trial timer — and you can run it in the browser first."
-            action={{ href: '/lab/skills', label: 'View free skills' }}
+            eyebrow="Free to try"
+            title="Run one end to end, keep what it makes"
+            lede="No card and no trial timer. Open a Skill, run it on the page, take the result."
+            action={{ href: '/lab/skills', label: 'View free Skills' }}
           />
           <SkillGrid skills={freeSkills(8)} />
         </Container>
@@ -141,9 +155,9 @@ export default function LabHomePage() {
       <Section className="bg-canvas">
         <Container className="flex flex-col gap-14">
           <SectionHead
-            eyebrow="Trending Agent Skills"
-            title="Trending, by what you are making"
-            lede="Slides, web, images and video — each Skill ships a real, finished result."
+            eyebrow="Trending"
+            title="Trending, by what you're making"
+            lede="Each category ships a real, finished result you can open and remix."
           />
           {CATEGORIES.map((category) => (
             <div key={category.key} className="flex flex-col gap-6 border-t border-line pt-8">
@@ -156,7 +170,7 @@ export default function LabHomePage() {
                   href="/lab/skills"
                   className="font-mono text-label-sm font-bold uppercase tracking-[0.08em] text-accent hover:underline hover:underline-offset-4"
                 >
-                  View all skills ›
+                  View all ›
                 </Link>
               </div>
               <SkillGrid skills={skillsByCategory(category.key)} className="lg:grid-cols-4" />
@@ -165,13 +179,13 @@ export default function LabHomePage() {
         </Container>
       </Section>
 
-      {/* Designed in-house */}
+      {/* How it works */}
       <Section className="bg-panel">
         <Container className="flex flex-col gap-11">
           <SectionHead
-            eyebrow="Every Skill is designed in-house"
-            title="Designed, written and tested in-house"
-            lede="Each one starts as a finished piece of work we design ourselves: a deck, a page, a film. Then we write the instructions, templates and scripts that let your agent make it again."
+            eyebrow="How it works"
+            title="One Skill, solved end to end"
+            lede="Each Skill chains a real workflow into a finished result. You watch the steps run, then keep the output."
             dark
           />
           <div className="grid grid-cols-1 gap-px bg-white/15 sm:grid-cols-2 lg:grid-cols-4">
@@ -190,10 +204,10 @@ export default function LabHomePage() {
       <Section className="bg-canvas">
         <Container className="flex flex-col gap-11">
           <SectionHead
-            eyebrow="Agent-first installation"
-            title="Connect your agent"
-            lede="Give your agent practical, reusable workflows — or skip the setup and run a Skill right here."
-            action={{ href: '/lab/skills', label: 'Pick a Skill' }}
+            eyebrow="Install"
+            title="Take it into your own agent"
+            lede="Every Skill installs in one line and runs the same way inside the agent you already use."
+            action={{ href: '/lab/skills', label: 'Find a Skill' }}
           />
           <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
             {CONNECT_STEPS.map((step) => (
@@ -207,7 +221,7 @@ export default function LabHomePage() {
           <div className="flex flex-wrap items-center gap-3 bg-surface p-5">
             <code className="font-mono text-mono-xs text-ink-muted">npx sandbase skill add &lt;skill&gt;</code>
             <ButtonLink href="/lab/skills" variant="secondary" size="sm" className="ml-auto">
-              Browse the catalog
+              Browse all Skills
             </ButtonLink>
           </div>
         </Container>
@@ -219,7 +233,7 @@ export default function LabHomePage() {
           <SectionHead
             eyebrow="Simple access"
             title="One plan unlocks every Skill"
-            lede="Full Premium access, plus every new Skill we ship. Cancel anytime."
+            lede="Premium Skills install into your agent, and every new one we ship is included. Cancel anytime."
             action={{ href: '/lab/pricing', label: 'See plans' }}
           />
           <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
@@ -241,23 +255,27 @@ export default function LabHomePage() {
       {/* Final CTA */}
       <Section className="bg-tint-blue text-tint-blue-fg">
         <Container className="flex flex-col items-start gap-6">
-          <h2 className="text-h2-cta max-w-[40rem] text-tint-blue-fg">Ready to extend your agent?</h2>
-          <p className="max-w-[38rem] text-lede text-tint-blue-fg">
-            Browse the catalog, run a Skill in the browser, then install it into the agent you already use.
+          <p className="font-mono text-label-sm font-bold uppercase tracking-[0.12em] text-tint-blue-fg">Creators</p>
+          <h2 className="text-h2-cta max-w-[40rem] text-tint-blue-fg">Have an idea for a Skill?</h2>
+          <p className="max-w-[42rem] text-lede text-tint-blue-fg">
+            Tell us the problem and the result you want. We design it, write it and test it with you, and put your name on it.
+            Early creators join revenue share first when it opens.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
               href="/lab/skills"
               className="inline-flex items-center justify-center bg-ink px-6 py-[13px] text-body font-medium text-canvas transition-colors hover:bg-tint-cyan hover:text-ink"
             >
-              Browse Skills
+              Browse all Skills
             </Link>
-            <Link
-              href="/lab/pricing"
+            <a
+              href="https://www.sandbase.ai/lab/"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center justify-center px-6 py-[13px] text-body font-medium text-tint-blue-fg ring-1 ring-inset ring-tint-blue-fg transition-colors hover:bg-tint-blue-fg hover:text-tint-blue"
             >
-              See plans
-            </Link>
+              Send your idea
+            </a>
           </div>
         </Container>
       </Section>

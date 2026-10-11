@@ -24,6 +24,8 @@ export interface Skill {
   name: string
   category: SkillCategory
   tagline: string
+  /** One line naming the finished thing the Skill hands back. */
+  delivers: string
   description: string
   version: string
   updated: string
@@ -84,6 +86,7 @@ export const SKILLS: Skill[] = [
     name: 'Dot Avatar Maker',
     category: 'web',
     tagline: 'Create character & styled art.',
+    delivers: 'A transparent PNG avatar and a 3D page you can spin.',
     description:
       'A live 3D avatar studio as a single HTML file: 25 cute dot, animal and fantasy forms, 12 finishes from soft plush to glazed ceramic, 32 styles and 18 languages. Run it to design characters in your browser and download transparent PNGs or 3D pages you can spin — no image generation and no credits. Then have your agent rebrand it, add your own forms and colors, or build it into your product as a character creator.',
     version: 'v1.0.1',
@@ -131,6 +134,7 @@ export const SKILLS: Skill[] = [
     name: 'Cobalt Serif Freelancer Site',
     category: 'web',
     tagline: 'A one-page portfolio with editorial type.',
+    delivers: 'A one-page portfolio, ready to host.',
     description:
       'A single-page freelancer site built around a high-contrast serif, a cobalt ground and a strict grid. Your agent produces clean semantic HTML and CSS you can host anywhere, with sections for work, services, an about note and a contact block — all editable from one file.',
     version: 'v2.2.0',
@@ -169,6 +173,7 @@ export const SKILLS: Skill[] = [
     name: 'Cadence Marketing Landing',
     category: 'web',
     tagline: 'A product landing page with rhythm.',
+    delivers: 'A responsive landing page with your copy in it.',
     description:
       'A marketing landing page with a clear cadence: hero, proof strip, feature trio, pricing and a closing CTA. Your agent fills it with your copy and ships responsive HTML and CSS, with a motion pass that respects reduced-motion preferences.',
     version: 'v1.4.0',
@@ -207,6 +212,7 @@ export const SKILLS: Skill[] = [
     name: 'Sage Sneaker Store',
     category: 'web',
     tagline: 'A small-batch storefront.',
+    delivers: 'A product page with a size and colour picker.',
     description:
       'A storefront page for a small product run: a product hero, a size and color picker, a story block and a checkout CTA. Clean HTML and CSS your agent can wire to any cart, with a sage-on-bone palette that stays out of the way of the product.',
     version: 'v1.1.0',
@@ -247,6 +253,7 @@ export const SKILLS: Skill[] = [
     name: 'Field Notes Deck',
     category: 'slides',
     tagline: 'A working deck that looks handwritten.',
+    delivers: 'A 12-slide deck you can present or print.',
     description:
       'A presentation system modelled on a field notebook: ruled grids, margin notes, a stamp for section breaks and a monospace caption style. Your agent turns an outline into a consistent deck you can present or export, with every slide built from the same small set of layouts.',
     version: 'v1.3.2',
@@ -285,6 +292,7 @@ export const SKILLS: Skill[] = [
     name: 'Yellow Sketchnote Deck',
     category: 'slides',
     tagline: 'Sketchnotes, in highlighter yellow.',
+    delivers: 'A sketchnote deck drawn from real vector markers.',
     description:
       'A sketchnote deck: hand-drawn arrows, highlighter fills and a bold caption voice that turns a talk or a workshop into visual notes. Your agent builds each slide from markers, boxes and connectors so the whole set reads as one page of notes.',
     version: 'v1.0.4',
@@ -323,6 +331,7 @@ export const SKILLS: Skill[] = [
     name: 'Visual Canvas Deck',
     category: 'slides',
     tagline: 'Full-bleed slides for a big-room talk.',
+    delivers: 'A full-bleed keynote deck at 16:9.',
     description:
       'A keynote-grade deck built on full-bleed canvases, a large type scale and a restrained accent. Your agent composes covers, statement slides and diagram slides that hold up on a projector, keeping one idea and one image per page.',
     version: 'v2.0.1',
@@ -361,6 +370,7 @@ export const SKILLS: Skill[] = [
     name: 'Consulting Storyline Deck',
     category: 'slides',
     tagline: 'An argument, slide by slide.',
+    delivers: 'A governed storyline with exhibit pages.',
     description:
       'A consulting deck that builds an argument: situation, complication, question, answer, then evidence. Your agent turns a brief into a governed storyline with consistent exhibit pages and a single headline per slide.',
     version: 'v1.5.0',
@@ -401,6 +411,7 @@ export const SKILLS: Skill[] = [
     name: 'Pixel Promo Video',
     category: 'video',
     tagline: 'A promo rendered as code, not a timeline.',
+    delivers: 'A 12-second promo clip, plus its frames.',
     description:
       'A short promo built from pixel-grid frames and stepped wipes, rendered in code so it is reproducible and endlessly tweakable. Your agent composes an intro, a product beat and an outro with a locked grid, keyframed motion and a caption track, then hands you the frames and a playable page.',
     version: 'v1.0.0',
@@ -440,6 +451,7 @@ export const SKILLS: Skill[] = [
     name: 'Linear Agent Style Launch Video',
     category: 'video',
     tagline: 'The calm, precise launch-film look.',
+    delivers: 'A 20-second launch film with captions.',
     description:
       'A launch film in the restrained, high-contrast style of a modern software brand: a slow build, precise type reveals and a single accent. Your agent scripts the beats, keyframes the reveals and renders a film with a matching caption track.',
     version: 'v1.1.0',
@@ -479,6 +491,7 @@ export const SKILLS: Skill[] = [
     name: 'Velocity-Matched UI Sting',
     category: 'video',
     tagline: 'A three-second sting that lands on the beat.',
+    delivers: 'A three-second sting that lands on the beat.',
     description:
       'A short UI sting where every element enters on a matched velocity curve, so the motion feels intentional rather than decorative. Your agent builds the elements, tunes the curve and renders a sting you can drop at the end of a product clip.',
     version: 'v1.2.0',
@@ -517,6 +530,7 @@ export const SKILLS: Skill[] = [
     name: 'Device-Canvas Product Launch',
     category: 'video',
     tagline: 'Your product on a device, in motion.',
+    delivers: 'An 8-second device clip for a hero section.',
     description:
       'A launch clip that puts your product on a device canvas and moves it with intent: a slow orbit, a screen transition and a closing card. Your agent composites the device frame, animates the screen and renders a clip ready for a landing page hero.',
     version: 'v1.0.3',
@@ -557,6 +571,7 @@ export const SKILLS: Skill[] = [
     name: 'Apple Style OG Image',
     category: 'image',
     tagline: 'A calm, product-first share card.',
+    delivers: 'A 1200x630 share card and a square variant.',
     description:
       'A social share card in the calm, product-first style of a premium hardware keynote: generous negative space, a soft gradient ground and one confident headline. Your agent composes the card to the right OG dimensions and exports a crisp PNG for every network.',
     version: 'v1.2.0',
@@ -595,6 +610,7 @@ export const SKILLS: Skill[] = [
     name: 'Monochrome Studio Portrait',
     category: 'image',
     tagline: 'A clean one-light portrait look.',
+    delivers: 'A graded portrait still, croppable to 2:3.',
     description:
       'A portrait treatment with a single studio light, a seamless ground and a monochrome grade. Your agent sets the lighting direction, the crop and the grade, then renders a consistent series so a set of portraits reads as one shoot.',
     version: 'v1.4.0',
@@ -633,6 +649,7 @@ export const SKILLS: Skill[] = [
     name: 'Hand-Drawn Visual Notes',
     category: 'image',
     tagline: 'Turn a page of text into visual notes.',
+    delivers: 'A single-page explainer image, share-ready.',
     description:
       'A visual-note image system: hand-drawn icons, arrows and boxes that turn a block of text into a single explainer page. Your agent extracts the key points, picks icons and composes everything into a shareable, scroll-stopping image.',
     version: 'v1.0.5',
@@ -671,6 +688,7 @@ export const SKILLS: Skill[] = [
     name: 'GrokBot Avatar',
     category: 'image',
     tagline: 'A friendly bot avatar in one shot.',
+    delivers: 'Square avatars at 512, 256 and 128.',
     description:
       'A bot avatar generator: a rounded, friendly robot with a palette that fits your brand. Your agent sets the proportions, colors and expression and renders a set of avatars at profile sizes, ready to drop into a chat or a docs page.',
     version: 'v1.0.2',

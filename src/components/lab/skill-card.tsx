@@ -20,7 +20,7 @@ export function SkillBadge({ skill }: { skill: Skill }) {
   if (skill.price === 'premium') {
     return <span className="bg-ink px-1.5 py-0.5 font-mono text-label-xs uppercase tracking-[0.08em] text-canvas">Pro</span>
   }
-  return <span className="bg-surface-alt px-1.5 py-0.5 font-mono text-label-xs uppercase tracking-[0.08em] text-ink">Free</span>
+  return <span className="bg-surface-alt px-1.5 py-0.5 font-mono text-label-xs uppercase tracking-[0.08em] text-ink">Free to try</span>
 }
 
 export function SkillCard({
@@ -41,7 +41,7 @@ export function SkillCard({
       <PixelFrame className="aspect-video">
         <SkillImage skill={skill} src={skillCardImage(skill)} className="absolute inset-0" />
       </PixelFrame>
-      <div className="flex flex-1 flex-col gap-3 p-4">
+      <div className="flex flex-1 flex-col gap-2.5 p-4">
         <div className="flex flex-wrap items-center gap-2">
           <SkillBadge skill={skill} />
           <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">{category.label}</span>
@@ -49,7 +49,8 @@ export function SkillCard({
         </div>
         <h3 className="text-card-title text-ink">{skill.name}</h3>
         <p className="text-body-xs text-ink-muted">{skill.tagline}</p>
-        <div className="mt-auto flex items-center justify-between pt-1">
+        <p className="text-body-xs text-ink-subtle">{skill.delivers}</p>
+        <div className="mt-auto flex items-center justify-between pt-2">
           <AgentRow agents={agents} limit={4} size={24} />
           <span className="font-mono text-label-xs uppercase tracking-[0.08em] text-accent transition-colors group-hover:underline group-hover:underline-offset-4">
             Open ›

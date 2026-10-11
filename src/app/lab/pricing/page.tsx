@@ -10,7 +10,7 @@ import { PLANS, PRICING_NOTES } from '@/content/pricing'
 
 export const metadata: Metadata = {
   title: 'Pricing',
-  description: 'One plan unlocks every SandBase Lab Premium Skill, plus every new one we ship. Free Skills only need a free account.',
+  description: 'Premium Skills install into your agent, and every new one we ship is included. Free Skills only need a free account.',
 }
 
 export default function PricingPage() {
@@ -20,10 +20,10 @@ export default function PricingPage() {
         <CornerMarks size={12} className="bg-tint-blue-fg" />
         <Container className="flex flex-col gap-5 py-14 md:py-18">
           <p className="font-mono text-label-sm font-bold uppercase tracking-[0.12em] text-tint-blue-fg">Pricing</p>
-          <h1 className="text-display max-w-[36rem] text-balance text-tint-blue-fg">Simple access to every Skill.</h1>
+          <h1 className="text-display max-w-[36rem] text-balance text-tint-blue-fg">One plan, every Skill.</h1>
           <p className="max-w-[44rem] text-lede-lg text-tint-blue-fg">
-            One plan unlocks every Skill our studio designs, plus each new one we ship. Cancel anytime — and run any Skill in
-            the browser before you subscribe.
+            Premium Skills install into the agent you already use, and every new one we ship is included. Cancel anytime — and
+            you can run any Skill on the page before you subscribe.
           </p>
         </Container>
       </section>

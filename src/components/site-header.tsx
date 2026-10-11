@@ -66,11 +66,11 @@ export function SiteHeader() {
 
   return (
     <>
-      <Link href="/lab/skills" className={styles.announcement} aria-label="SandBase Lab is live: run Agent Skills right in your browser.">
+      <Link href="/lab/skills" className={styles.announcement} aria-label="SandBase Lab: every Skill runs on the page — no keys, no card, no cost.">
         <span aria-hidden="true" className={styles.announcementWipe} />
         <span className={styles.announcementName}>SandBase Lab</span>
-        <span className={styles.announcementMessage}>Agent Skills you can run right in the browser.</span>
-        <span className={styles.announcementCta}>Run one now</span>
+        <span className={styles.announcementMessage}>Every Skill runs on the page: no keys, no card, no cost.</span>
+        <span className={styles.announcementCta}>Try one now</span>
       </Link>
       <header data-site-header className={styles.header}>
         <div className={styles.bar}>

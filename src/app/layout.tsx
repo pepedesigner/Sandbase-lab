@@ -28,22 +28,22 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://lab.sandbase.ai'),
   title: {
-    default: 'SandBase Lab — Agent Skills you can run in the browser',
+    default: 'SandBase Lab — your ideas, Agents do the rest',
     template: '%s | SandBase Lab',
   },
   description:
-    'Browse original Agent Skills for design, web, slides, image and video work — then run any of them right in your browser. Built on the SandBase design language.',
+    'Agent Skills that make real things — decks, landing pages, launch films, character art. Open any one and it runs right on the page: no keys, no install, no cost.',
   applicationName: 'SandBase Lab',
   openGraph: {
-    title: 'SandBase Lab — Agent Skills you can run in the browser',
-    description: 'Browse Agent Skills and run them right in your browser.',
+    title: 'SandBase Lab — your ideas, Agents do the rest',
+    description: 'Agent Skills that make real things, and run right on the page.',
     type: 'website',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: 'SandBase Lab' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SandBase Lab — Agent Skills you can run in the browser',
-    description: 'Browse Agent Skills and run them right in your browser.',
+    title: 'SandBase Lab — your ideas, Agents do the rest',
+    description: 'Agent Skills that make real things, and run right on the page.',
     images: ['/og.png'],
   },
 }

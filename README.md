@@ -1,8 +1,10 @@
 # SandBase Lab
 
-**An Agent Skills catalog you can run right in the browser.** Browse original Skills for web, slides, image and video work, then hit *Run in browser* and watch the Skill produce its result — no install, no API keys, no cost.
+**Your ideas. Agents do the rest.** A catalogue of Agent Skills that make real things — decks, landing pages, launch films, character art — and a workbench that runs any of them right on the page.
 
-A standalone demo built on the [SandBase](https://www.sandbase.ai) design language: risograph-violet and lime spot inks on paper/ink stock, square corners, mono micro-labels, and no resting shadows.
+The copy and the vocabulary follow the live SandBase Lab at [sandbase.ai/lab](https://www.sandbase.ai/lab/): short declaratives, the meta row on every card (badge, category, count, then the result it hands back), the numbered "how it works" block, and a closing call for creators.
+
+Standalone demo built on the [SandBase](https://www.sandbase.ai) design language: risograph-violet and lime spot inks on paper/ink stock, square corners, mono micro-labels, and no resting shadows.
 
 ![SandBase Lab home](docs/screenshots/home.png)
 

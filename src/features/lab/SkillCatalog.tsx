@@ -161,8 +161,7 @@ export function SkillCatalog({ skills }: { skills: Skill[] }) {
           <div className="flex flex-col items-start gap-4 bg-surface p-10">
             <span className="font-mono text-label-sm uppercase tracking-[0.09em] text-accent">No matches</span>
             <p className="max-w-[34rem] text-body-sm text-ink-muted">
-              Nothing in the catalog matches those filters yet. Try a different search, or clear the filters to see the full
-              library.
+              Nothing matches those filters yet. Try another search, or clear them to see every Skill.
             </p>
             <button
               type="button"

@@ -26,7 +26,7 @@ export default function Error({ reset }: { error: Error & { digest?: string }; r
             href="/lab/skills"
             className="inline-flex items-center justify-center px-6 py-[13px] text-body font-medium text-ink ring-1 ring-inset ring-line-control transition-colors hover:bg-tint-blue hover:text-tint-blue-fg hover:ring-0"
           >
-            Browse Skills
+            Browse all Skills
           </Link>
         </div>
       </Container>

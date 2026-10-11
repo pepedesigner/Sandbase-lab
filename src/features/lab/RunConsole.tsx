@@ -149,7 +149,7 @@ export function RunWorkbench({ skill }: { skill: Skill }) {
         </div>
 
         <label className="flex flex-col gap-2">
-          <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">Your prompt</span>
+          <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">Your input</span>
           <textarea
             className="input-base min-h-[7.5rem]"
             value={prompt}
@@ -174,7 +174,7 @@ export function RunWorkbench({ skill }: { skill: Skill }) {
               onClick={run}
               className="inline-flex items-center justify-center bg-ink px-6 py-[13px] text-body font-medium text-canvas transition-colors hover:bg-tint-cyan hover:text-ink"
             >
-              {status === 'idle' ? 'Run in browser' : 'Run again'}
+              {status === 'idle' ? 'Run it' : 'Run again'}
             </button>
           )}
           <button
@@ -183,7 +183,7 @@ export function RunWorkbench({ skill }: { skill: Skill }) {
             disabled={running}
             className="font-mono text-label-sm uppercase tracking-[0.08em] text-ink-muted transition-colors hover:text-ink disabled:opacity-40"
           >
-            Use example
+            Use the example
           </button>
         </div>
 
@@ -196,8 +196,8 @@ export function RunWorkbench({ skill }: { skill: Skill }) {
         </div>
 
         <p className="text-body-xs text-ink-subtle">
-          Runtime: <span className="text-ink-muted">{skill.generatesWith}</span>. This is a simulated run for the demo — no
-          model calls, no keys, no cost.
+          Runtime: <span className="text-ink-muted">{skill.generatesWith}</span>. Simulated for this demo — no model calls, no
+          keys, no cost.
         </p>
       </div>
 
@@ -235,7 +235,7 @@ export function RunWorkbench({ skill }: { skill: Skill }) {
           <div ref={logRef} className="h-[22rem] overflow-y-auto px-4 py-3" role="log" aria-busy={running}>
             {lines.length === 0 ? (
               <p className="font-mono text-mono-xs text-panel-fg-muted">
-                <span className="text-lime-300">$</span> waiting — press “Run in browser” to execute this Skill.
+                <span className="text-lime-300">$</span> waiting — press “Run it” to run this Skill.
               </p>
             ) : (
               <ol className="flex flex-col gap-1.5">
@@ -262,7 +262,7 @@ export function RunWorkbench({ skill }: { skill: Skill }) {
         {status === 'done' ? (
           <div className="flex flex-col gap-4 bg-surface p-4">
             <div className="flex items-center justify-between gap-3">
-              <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-accent">Result</span>
+              <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-accent">The result</span>
               <span className="font-mono text-label-xs tabular-nums text-ink-subtle">
                 {skill.art.title} · {skill.art.sub}
               </span>
@@ -276,7 +276,7 @@ export function RunWorkbench({ skill }: { skill: Skill }) {
                 onClick={downloadTranscript}
                 className="inline-flex items-center justify-center bg-ink px-5 py-2.5 text-body-sm font-medium text-canvas transition-colors hover:bg-tint-cyan hover:text-ink"
               >
-                Download transcript
+                Download the transcript
               </button>
               <button
                 type="button"

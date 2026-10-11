@@ -61,7 +61,7 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
         <Container className="flex flex-col gap-8 py-10 md:py-14">
           <div className="flex items-center gap-2 font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">
             <Link href="/lab/skills" className="transition-colors hover:text-ink">
-              Catalog
+              All Skills
             </Link>
             <span aria-hidden="true">/</span>
             <span>{category.label}</span>
@@ -82,6 +82,10 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
                 <h1 className="text-h1 text-balance text-ink">{skill.name}</h1>
                 <p className="text-lede text-ink-muted">{skill.tagline}</p>
               </div>
+              <div className="flex flex-col gap-1 border-l-2 border-accent pl-4">
+                <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">You get</span>
+                <p className="text-body text-ink">{skill.delivers}</p>
+              </div>
               <p className="max-w-[40rem] text-body-sm text-ink-muted">{skill.description}</p>
 
               <dl className="flex flex-wrap gap-x-8 gap-y-3 border-y border-line py-4">
@@ -99,7 +103,7 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
                   className="inline-flex items-center justify-center gap-2 bg-ink px-6 py-[13px] text-body font-medium text-canvas transition-colors hover:bg-tint-cyan hover:text-ink"
                 >
                   <span aria-hidden="true" className="size-[7px] bg-tint-cyan" />
-                  Run in browser
+                  Try it now
                 </Link>
                 <DownloadSkillButton skill={skill} />
               </div>
@@ -136,7 +140,7 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
                 </div>
               ) : null}
               <p className="font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">
-                Preview gallery — results this Skill produces
+                The results this Skill makes
               </p>
             </div>
           </div>
@@ -147,16 +151,16 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
       <Section className="bg-tint-mint !pt-14 md:!pt-16">
         <Container className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,24rem)_minmax(0,1fr)] lg:gap-16">
           <div className="flex flex-col gap-3">
-            <p className="sb-eyebrow">About this Skill</p>
-            <h2 className="text-h2 text-ink">How it works</h2>
+            <p className="sb-eyebrow">How it works</p>
+            <h2 className="text-h2 text-ink">What it does</h2>
             <p className="text-body-sm text-ink-muted">
-              Read the instructions, hand it a prompt, and it returns the finished artifact — the same workflow your agent
-              follows after install.
+              Hand it a sentence and it returns the finished thing. The same workflow runs inside your agent after
+              install.
             </p>
           </div>
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-3 bg-surface p-5">
-              <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">Example prompt</span>
+              <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-ink-subtle">You say</span>
               <p className="text-body text-ink">
                 <span className="font-mono text-mono-xs text-accent">/{skill.slug}</span> {skill.promptExample}
               </p>
@@ -224,15 +228,15 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
       <Section className="bg-tint-blue text-tint-blue-fg">
         <Container className="relative flex flex-col items-start gap-6">
           <CornerMarks size={12} className="bg-tint-blue-fg" />
-          <h2 className="text-h2-cta max-w-[36rem] text-tint-blue-fg">Run {skill.name} right now.</h2>
+          <h2 className="text-h2-cta max-w-[36rem] text-tint-blue-fg">Run {skill.name} right here.</h2>
           <p className="max-w-[36rem] text-lede text-tint-blue-fg">
-            No install and no keys — open the workbench, edit the prompt and watch it build the result.
+            No install and no keys. Edit the input and watch it build the result.
           </p>
           <Link
             href={`/lab/run/${skill.slug}`}
             className="inline-flex items-center justify-center bg-ink px-6 py-[13px] text-body font-medium text-canvas transition-colors hover:bg-tint-cyan hover:text-ink"
           >
-            Run in browser
+            Try it now
           </Link>
         </Container>
       </Section>
@@ -247,7 +251,7 @@ export default function SkillDetailPage({ params }: { params: { slug: string } }
                 href="/lab/skills"
                 className="font-mono text-label-sm font-bold uppercase tracking-[0.08em] text-accent hover:underline hover:underline-offset-4"
               >
-                View all skills ›
+                View all ›
               </Link>
             </div>
             <SkillGrid skills={related} className="lg:grid-cols-4" />
