@@ -19,9 +19,9 @@ export default function PricingPage() {
       <section className="relative isolate bg-tint-blue text-tint-blue-fg">
         <CornerMarks size={12} className="bg-tint-blue-fg" />
         <Container className="flex flex-col gap-5 py-14 md:py-18">
-          <p className="font-mono text-label-sm font-bold uppercase tracking-[0.12em] text-tint-blue-fg/80">Pricing</p>
+          <p className="font-mono text-label-sm font-bold uppercase tracking-[0.12em] text-tint-blue-fg">Pricing</p>
           <h1 className="text-display max-w-[36rem] text-balance text-tint-blue-fg">Simple access to every Skill.</h1>
-          <p className="max-w-[44rem] text-lede-lg text-tint-blue-fg/85">
+          <p className="max-w-[44rem] text-lede-lg text-tint-blue-fg">
             One plan unlocks every Skill our studio designs, plus each new one we ship. Cancel anytime — and run any Skill in
             the browser before you subscribe.
           </p>

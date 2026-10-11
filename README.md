@@ -43,6 +43,7 @@ Open any Skill and press **Run in browser**. The workbench replays the workflow 
 
 - **Faithful to the SandBase design language** — the colour tokens, type ramp (`Clash Grotesk` + mono labels), square corners, `pixel-tile` grids and registration marks are lifted straight from the SandBase front end, so the Lab drops into the real site without a redesign.
 - **Light & dark** — the full day/night token set with a theme control in the header; defaults to the paper look.
+- **Hero coverflow** — the home hero leads with a perspective deck: the active Skill flat and centred, its neighbours scaled and tilted behind. It advances on a timer with a progress line, and can be driven manually (prev/next, pause) or stopped entirely by `prefers-reduced-motion`.
 - **Catalog that works** — search, multi-select category facets with counts, a free/premium filter and real sorting (featured, most installed, newest), with an empty state.
 - **Real previews** — every card, gallery and run result shows the Skill's actual published result artwork (downloaded locally, no hotlinking), with a procedural SVG scene as a fallback if an image is missing. See [`docs/previews.md`](docs/previews.md).
 - **Self-hosted fonts, no third-party requests** — Clash Grotesk and JetBrains Mono are loaded through `next/font`, so they are bundled and preloaded from this origin. No external stylesheet, no font CDN, no render-blocking request.
@@ -87,7 +88,7 @@ src/
   components/
     site-header.tsx         # SandBase nav incl. the new Lab entry
     ui/                     # design-system primitives (button, section, …)
-    lab/                    # skill card, image, artifact preview, badges, FAQ, …
+    lab/                    # skill card, image, hero coverflow, badges, FAQ, …
   features/lab/
     SkillCatalog.tsx        # search, filters and sorting
     RunConsole.tsx          # the run workbench

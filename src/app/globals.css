@@ -273,6 +273,12 @@ textarea.input-base { resize: vertical; }
 
 .card-hover { transition: background-color 150ms ease; }
 
+/* Hero coverflow: the auto-advance progress line, restarted each cycle. */
+@keyframes sb-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     scroll-behavior: auto !important;

@@ -1,5 +1,16 @@
 import type { Config } from 'tailwindcss'
 
+/*
+ * Every colour is a CSS variable so the day/night theme can swap it. Tailwind
+ * only applies an opacity modifier (`text-ink/60`) when the colour exposes an
+ * `<alpha-value>` — a bare `var(--x)` has none, so those utilities were being
+ * dropped silently. Routing through `color-mix` fixes that without duplicating
+ * every token as raw RGB channels; with no modifier Tailwind fills in `1`, so
+ * the base utilities stay exactly the token colour.
+ */
+const token = (variable: string) =>
+  `color-mix(in srgb, var(${variable}) calc(<alpha-value> * 100%), transparent)`
+
 const config: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   // `dark:` follows the site theme toggle (data-theme on <html>), not the OS.
@@ -7,18 +18,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        canvas: 'var(--color-canvas)', surface: 'var(--color-surface)',
-        'surface-alt': 'var(--color-surface-alt)', line: 'var(--color-line)',
-        'line-control': 'var(--color-line-control)', 'line-strong': 'var(--color-line-strong)',
-        ink: 'var(--color-ink)', 'ink-muted': 'var(--color-ink-muted)', 'ink-subtle': 'var(--color-ink-subtle)',
-        accent: 'var(--color-accent)', panel: 'var(--color-panel)', 'panel-fg': 'var(--color-panel-fg)',
-        'panel-fg-muted': 'var(--color-panel-fg-muted)', 'panel-fg-label': 'var(--color-panel-fg-label)', 'panel-code': 'var(--color-panel-code)',
-        'tint-cyan': 'var(--color-tint-cyan)', 'tint-blue': 'var(--color-tint-blue)', 'tint-blue-fg': 'var(--color-tint-blue-fg)',
-        'tint-fg': 'var(--color-tint-yellow-fg)',
-        'tint-mint': 'var(--color-tint-mint)', 'tint-mint-strong': 'var(--color-tint-mint-strong)',
-        'tint-yellow': 'var(--color-tint-yellow)', 'tint-yellow-fg': 'var(--color-tint-yellow-fg)',
-        'positive-bright': 'var(--color-positive-bright)', positive: 'var(--color-positive)',
-        plate: 'var(--color-plate)',
+        canvas: token('--color-canvas'), surface: token('--color-surface'),
+        'surface-alt': token('--color-surface-alt'), line: token('--color-line'),
+        'line-control': token('--color-line-control'), 'line-strong': token('--color-line-strong'),
+        ink: token('--color-ink'), 'ink-muted': token('--color-ink-muted'), 'ink-subtle': token('--color-ink-subtle'),
+        accent: token('--color-accent'), panel: token('--color-panel'), 'panel-fg': token('--color-panel-fg'),
+        'panel-fg-muted': token('--color-panel-fg-muted'), 'panel-fg-label': token('--color-panel-fg-label'), 'panel-code': token('--color-panel-code'),
+        'tint-cyan': token('--color-tint-cyan'), 'tint-blue': token('--color-tint-blue'), 'tint-blue-fg': token('--color-tint-blue-fg'),
+        'tint-fg': token('--color-tint-yellow-fg'),
+        'tint-mint': token('--color-tint-mint'), 'tint-mint-strong': token('--color-tint-mint-strong'),
+        'tint-yellow': token('--color-tint-yellow'), 'tint-yellow-fg': token('--color-tint-yellow-fg'),
+        'positive-bright': token('--color-positive-bright'), positive: token('--color-positive'),
+        plate: token('--color-plate'),
       },
       keyframes: {
         sweep: { from: { transform: 'translateY(0)' }, to: { transform: 'translateY(400%)' } },

@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 
 import { WorksWithStrip } from '@/components/lab/agent-badges'
 import { FaqList } from '@/components/lab/faq-item'
+import { HeroCarousel } from '@/components/lab/hero-carousel'
 import { PriceCard } from '@/components/lab/price-card'
 import { SkillGrid } from '@/components/lab/skill-card'
 import { ButtonLink } from '@/components/ui/button'
@@ -75,32 +76,35 @@ export default function LabHomePage() {
       {/* Hero */}
       <section className="relative isolate bg-tint-blue text-tint-blue-fg">
         <CornerMarks size={12} className="bg-tint-blue-fg" />
-        <Container className="flex flex-col gap-10 py-16 md:py-22">
-          <div className="flex flex-col gap-6 md:max-w-[52rem]">
-            <p className="font-mono text-label-sm font-bold uppercase tracking-[0.12em] text-tint-blue-fg">
-              SandBase Lab — Agent Skills
-            </p>
-            <h1 className="text-display text-balance text-tint-blue-fg">Agent Skills with taste.</h1>
-            <p className="max-w-[42rem] text-lede-lg text-pretty text-tint-blue-fg">
-              Original Skills for web, slides, image and video work — designed, written and tested by our studio. Browse the
-              catalog, then run any Skill right here in the browser.
-            </p>
+        <Container className="grid grid-cols-1 gap-10 py-16 md:py-22 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-6 md:max-w-[42rem]">
+              <p className="font-mono text-label-sm font-bold uppercase tracking-[0.12em] text-tint-blue-fg">
+                SandBase Lab — Agent Skills
+              </p>
+              <h1 className="text-display text-balance text-tint-blue-fg">Agent Skills with taste.</h1>
+              <p className="max-w-[42rem] text-lede-lg text-pretty text-tint-blue-fg">
+                Original Skills for web, slides, image and video work — designed, written and tested by our studio. Browse the
+                catalog, then run any Skill right here in the browser.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                href="/lab/skills"
+                className="inline-flex items-center justify-center bg-ink px-6 py-[13px] text-body font-medium text-canvas transition-colors hover:bg-tint-cyan hover:text-ink"
+              >
+                Browse Skills
+              </Link>
+              <Link
+                href="/lab/skills/dot-avatar-maker"
+                className="inline-flex items-center justify-center px-6 py-[13px] text-body font-medium text-tint-blue-fg ring-1 ring-inset ring-tint-blue-fg transition-colors hover:bg-tint-blue-fg hover:text-tint-blue"
+              >
+                Run one now
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-wrap items-center gap-3">
-            <Link
-              href="/lab/skills"
-              className="inline-flex items-center justify-center bg-ink px-6 py-[13px] text-body font-medium text-canvas transition-colors hover:bg-tint-cyan hover:text-ink"
-            >
-              Browse Skills
-            </Link>
-            <Link
-              href="/lab/skills/dot-avatar-maker"
-              className="inline-flex items-center justify-center px-6 py-[13px] text-body font-medium text-tint-blue-fg ring-1 ring-inset ring-tint-blue-fg transition-colors hover:bg-tint-blue-fg hover:text-tint-blue"
-            >
-              Run one now
-            </Link>
-          </div>
-          <div className="flex flex-col gap-3 border-t border-tint-blue-fg/25 pt-6">
+          <HeroCarousel skills={featuredSkills(6)} className="w-full" />
+          <div className="flex flex-col gap-3 border-t border-tint-blue-fg/25 pt-6 lg:col-span-2">
             <span className="font-mono text-label-xs uppercase tracking-[0.09em] text-tint-blue-fg">Works with</span>
             <WorksWithStrip />
           </div>

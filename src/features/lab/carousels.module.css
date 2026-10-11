@@ -1,0 +1,53 @@
+.viewport {
+  position: relative;
+  height: 312px;
+  overflow: hidden;
+  /* soften both edges so cards enter and leave rather than hard-cutting */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
+}
+
+.item {
+  height: 96px;
+  /* margin (not gap) so a -50% translate loops seamlessly */
+  margin-bottom: 12px;
+}
+
+/* A · continuous loop ------------------------------------------------ */
+.marqueeTrack {
+  animation: marqueeY var(--marquee-duration, 30s) linear infinite;
+}
+.marquee:hover .marqueeTrack,
+.marquee:focus-within .marqueeTrack {
+  animation-play-state: paused;
+}
+.marqueePaused .marqueeTrack {
+  animation-play-state: paused;
+}
+@keyframes marqueeY {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+/* B · stepped autoplay ---------------------------------------------- */
+.steppedTrack {
+  /* the brand's wipe easing: it snaps instead of gliding */
+  transition: transform 360ms steps(6, end);
+}
+
+/* C · snap & drag --------------------------------------------------- */
+.snap {
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.snap::-webkit-scrollbar { display: none; }
+.snapItem { scroll-snap-align: start; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack { animation: none; }
+  .steppedTrack { transition: none; }
+  .snap { scroll-behavior: auto; }
+}
